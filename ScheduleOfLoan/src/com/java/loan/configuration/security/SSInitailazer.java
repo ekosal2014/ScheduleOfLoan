@@ -1,5 +1,7 @@
 package com.java.loan.configuration.security;
 
-public class SSInitailazer {
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+
+public class SSInitailazer extends AbstractSecurityWebApplicationInitializer{
 
 }
