@@ -13,9 +13,9 @@ public class SSConfiguration extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO Auto-generated method stub
 		 http.authorizeRequests()
-	       /* .antMatchers("/", "/home").permitAll()
-	        .antMatchers("/student/**").access("hasRole('ROLE_STUDENT')")
-	        .antMatchers("/teacher/**").access("hasRole('ROLE_TEACHER')")*/
+	        .antMatchers("/", "/home").access("hasRole('ROLE_USER')")
+	        .antMatchers("/register").permitAll()
+	        .antMatchers("/teacher/**").access("hasRole('ROLE_USER')")
 	        .and().formLogin().loginPage("/login")
 	        //.successHandler(customUrlSuccess)
 	        .usernameParameter("username").passwordParameter("password")        

@@ -16,5 +16,9 @@ public class LoanController {
 	public String getLogin(){
 		return "login";
 	}
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String getRegister(){
+		return "register";
+	}
 
 }
