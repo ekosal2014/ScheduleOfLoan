@@ -88,9 +88,19 @@
 	<script>
 		$(document).ready(function(){
 			$("#btn-register").click(function(){
+				if($('#fullname').val() == "" || $('#fullname').val() == null){
+					alert("Please enter your fullname.")
+					return;
+				}
+				if ($('input[name=gender]:checked').length < 1){
+					alert("Please choose your Gender.")
+					return;
+				}
+				if ($('#email').val() == "")
 				$("#register-container-2").show();
 				$("#register-container").hide();
 			});
+			
 		});
 	</script>
 </html>
