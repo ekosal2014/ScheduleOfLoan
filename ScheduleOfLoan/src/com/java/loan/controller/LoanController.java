@@ -38,18 +38,13 @@ public class LoanController {
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public @ResponseBody Message getRegister(@ModelAttribute User user){
-		System.out.println(" =============== Hello ==========="  );
 		Message msg = new Message();
-		user.setUsername("");
-		msg.setCode("lksadfjlsaf");
-		msg.setMsg("asdlkfasd");
-		msg.setError(true);
-		
+		registerValidator.validator(user, msg);
 		if (msg.isError()){
-			System.out.println(" =============== Hello =========== error"  );
+			return msg;
 		}
-		System.out.println(" =============== Hello ==========="  );
-		return registerValidator.validator(user, msg);
+		
+		return msg;
 	}
 
 }
