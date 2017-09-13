@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.java.loan.modal.Message;
+import com.java.loan.modal.Status;
 import com.java.loan.modal.User;
 import com.java.loan.validation.RegisterValidator;
 
@@ -37,16 +37,14 @@ public class LoanController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public @ResponseBody Message getRegister(@ModelAttribute User user){
+	public @ResponseBody String getRegister(@ModelAttribute User user){
 		System.out.println(" =============== Hello ==========="  );
-		Message msg = new Message();
-		user.setUsername("");
-		registerValidator.validator(user, msg);
+		Status msg = new Status();
 		if (msg.isError()){
 			System.out.println(" =============== Hello =========== error"  );
 		}
 		System.out.println(" =============== Hello ==========="  );
-		return msg;
+		return "asdkfskdlj";
 	}
 
 }

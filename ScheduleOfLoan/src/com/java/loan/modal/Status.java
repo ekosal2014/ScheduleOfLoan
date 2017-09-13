@@ -1,6 +1,6 @@
 package com.java.loan.modal;
 
-public class Message {
+public class Status {
 	private boolean error;
 	private String code;
 	private String msg;

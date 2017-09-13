@@ -100,8 +100,8 @@
 		            type: frm.attr('method'),
 		            url: frm.attr('action'),
 		            data : data,
-		            success : function(callback){
-		            	console.log(callback)
+		            success : function(json){
+		            	console.log(json)
 		            },
 		            error : function(){
 		               console.log('error');
