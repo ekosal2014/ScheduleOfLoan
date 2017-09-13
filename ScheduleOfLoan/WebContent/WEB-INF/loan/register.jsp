@@ -44,18 +44,12 @@
 				cursor:pointer;
 				background-color:#4CAF50;
 			}
-			@-webkit-keyframes animatezoom{
-				from { -webkit-transform : scale(0);}
-				to { -webkit-transform : scale(1);}
-			}
-			@-keyframes animatezoom{
-				from { -webkit-transform : scale(0);}
-				to { -webkit-transform : scale(1);}
-			}
+			
 		</style>
 	</head>
 	<body>
-		<div class="register-container" id="register-container">
+		<form action="/register" method="post">
+		<!-- <div class="register-container" id="register-container">
 			<label><b>Full Name</b></label>
 			<input type="text" name="fullname" id="fullname" required/>
 			<label><b>Gender</b></label>
@@ -70,10 +64,10 @@
 			<label><b>Date Of Birth</b></label>
 			<input type="text" name="dob" id="dob" required/>
 			<label><b>Address</b></label>
-			<textarea></textarea>
+			<textarea id="address"></textarea>
 			<button class="btn-login" id="btn-register">Next</button>
-		</div>
-		<div class="register-container-2" style="display:none;" id="register-container-2">
+		</div> -->
+		<div class="register-container-2" id="register-container-2">
 			<label><b>User Name</b></label>
 			<input type="text" name="username" required/>
 			<label><b>Password</b></label>
@@ -83,24 +77,44 @@
 			<label><b>Password</b></label>
 			<button class="btn-login" type="submit" >Save</submit>
 		</div>
+		</form>
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			$("#btn-register").click(function(){
-				if($('#fullname').val() == "" || $('#fullname').val() == null){
-					alert("Please enter your fullname.")
+				/* if($('#username').val() == "" || $('#username').val() == null){
+					alert("Please enter your username.")
 					return;
-				}
-				if ($('input[name=gender]:checked').length < 1){
+				} */
+				/* if ($('input[name=gender]:checked').length < 1){
 					alert("Please choose your Gender.")
 					return;
 				}
-				if ($('#email').val() == "")
-				$("#register-container-2").show();
-				$("#register-container").hide();
+				var regEx = new RegExp("/[0-9]/");
+				if ($('#phonenumber').val() == ''){
+					alert("Please enter your phone number!");
+					return;
+				} 
+				if ($('#phonenumber').val().length > 11 || $('#phonenumber').val().length < 9 || regEx.test($('#phonenumber').val())){
+					alert('Please your phone number is something wrong!');
+					return;
+				}
+				if ($('#email').val() == ""){
+					alert("Please enter your email");
+					return;
+				}
+				if (isValidEmailAddress($('#email').val()) == false){
+					alert("Please your email has something wrong!");
+					return;
+				} */
+				/* $("#register-container-2").show();
+				$("#register-container").hide(); */
 			});
-			
+			/* function isValidEmailAddress(emailAddress) {
+			    var pattern = new RegExp(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i);
+			    return pattern.test(emailAddress);
+			} */
 		});
 	</script>
 </html>
