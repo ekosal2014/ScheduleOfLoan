@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java.loan.mapper.UserMapper">
+    <resultMap type="com.java.loan.model.User" id="user">
+    	<id property="user_id" column=""/>
+    	<result property="user_code" column=""/>
+    	<result property="full_name" column=""/>
+    	<result property="gender" column=""/>
+    	<result property="phone" column=""/>
+    	<result property="address" column=""/>
+    	<result property="username" column=""/>
+    	<result property="createby" column=""/>
+    	<result property="createdate" column=""/>
+    	<result property="sts" column=""/>
+    </resultMap>
+    
+    <insert id="registerUser" parameterType="java.util.HashMap" useGeneratedKeys="true" keyProperty="user_id">
+    
+    </insert>
+	
+</mapper>

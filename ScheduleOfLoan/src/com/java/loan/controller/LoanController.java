@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.java.loan.modal.Message;
-import com.java.loan.modal.User;
+import com.java.loan.model.Message;
+import com.java.loan.model.User;
 import com.java.loan.validation.RegisterValidator;
 
 

@@ -1,4 +1,4 @@
-package com.java.loan.modal;
+package com.java.loan.model;
 
 public class Wallet {
 

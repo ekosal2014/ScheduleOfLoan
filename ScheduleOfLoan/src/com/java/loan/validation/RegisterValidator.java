@@ -1,8 +1,9 @@
 package com.java.loan.validation;
 
 import org.springframework.stereotype.Component;
-import com.java.loan.modal.Message;
-import com.java.loan.modal.User;
+
+import com.java.loan.model.Message;
+import com.java.loan.model.User;
 
 
 @Component
