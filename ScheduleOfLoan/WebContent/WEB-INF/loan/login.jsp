@@ -57,7 +57,7 @@
 	<script>
 		$(document).ready(function(){
 			$('#frm-register').submit(function(e) {
-				var frm = $('#frm-login')
+				var frm = $('#frm-login');
 				e.preventDefault();
 				var data = {};
 				var form = this;
@@ -65,7 +65,7 @@
 				$.each(this,function(i,v){
 					var input = $(v);
 					data[input.attr("name")] = input.val();
-					delete(data["undefined")
+					delete(data["undefined"])
 				});
 			});
 		});
