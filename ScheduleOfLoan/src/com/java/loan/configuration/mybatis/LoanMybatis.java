@@ -14,23 +14,25 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan(basePackages = "com.java.loan.mapper")
 public class LoanMybatis {
 	
-	@Bean(name = "dataSource")
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/student_db");
-		dataSource.setUsername("root");
-		dataSource.setPassword("");
-		return dataSource();
+	@Bean (name = "dataSource")
+	public DataSource dataSource(){
+	       DriverManagerDataSource dataSource = new DriverManagerDataSource();
+	       dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+	       dataSource.setUrl("jdbc:mysql://localhost:3306/scheduleofloan");
+	       dataSource.setUsername("root");
+	       dataSource.setPassword("");
+	       return dataSource;
 	}
 	
+	
 	@Bean
-	public SqlSessionFactoryBean sqlSessionFactoryBean() {
-		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-		sqlSessionFactoryBean.setDataSource(dataSource());
-		sqlSessionFactoryBean.setTypeAliasesPackage("com.java.loan.model");
-		return sqlSessionFactoryBean;
+	public SqlSessionFactoryBean sqlSessionFactory() {
+		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
+		sqlSessionFactory.setDataSource(dataSource());
+		sqlSessionFactory.setTypeAliasesPackage("com.java.loan.model");
+		return sqlSessionFactory;
 		
 	}
-
+	
+	
 }

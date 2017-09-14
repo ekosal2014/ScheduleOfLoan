@@ -3,20 +3,40 @@
 
 <mapper namespace="com.java.loan.mapper.UserMapper">
     <resultMap type="com.java.loan.model.User" id="user">
-    	<id property="user_id" column=""/>
-    	<result property="user_code" column=""/>
-    	<result property="full_name" column=""/>
-    	<result property="gender" column=""/>
-    	<result property="phone" column=""/>
-    	<result property="address" column=""/>
-    	<result property="username" column=""/>
-    	<result property="createby" column=""/>
-    	<result property="createdate" column=""/>
-    	<result property="sts" column=""/>
+    	<id property="user_id"          column="user_id"/>
+    	<result property="user_code"    column="user_code"/>
+    	<result property="full_name"    column="full_name"/>
+    	<result property="gender"       column="gender"/>
+    	<result property="email"        column="email"/>
+    	<result property="phone"        column="phone"/>
+    	<result property="address"      column="address"/>
+    	<result property="username"     column="username"/>
+    	<result property="password"     column="password"/>
+    	<result property="createby"     column="createby"/>
+    	<result property="createdate"   column="createdate"/>
+    	<result property="sts"          column="sts"/>
     </resultMap>
+    <!-- Get Max Index -->
+    <select id="getMaxUserId" resultType="int">
+    	SELECT COALESCE(max(USER_ID),0) AS USER_ID FROM tblUser
+    </select>
     
-    <insert id="registerUser" parameterType="java.util.HashMap" useGeneratedKeys="true" keyProperty="user_id">
+   <!--  Check Duplicated User Name -->
+    <select id="getUserNameExit" parameterType="String" resultType="int">
+    	SELECT COUNT(*) AS COUNT FROM tblUser WHERE username = #{username}
+    </select>
     
+    <insert id="registerUser" parameterType="user" useGeneratedKeys="true" keyProperty="user_id" >
+    	INSERT INTO tblUser(
+				    		  user_code
+				    		, username
+				    		, password
+				    		)
+				    	VALUE(
+				    		  #{user_code}
+				    		, #{username}
+				    		, #{password}
+				    	    )
     </insert>
 	
 </mapper>

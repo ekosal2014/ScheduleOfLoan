@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.java.loan.model.Message;
 import com.java.loan.model.User;
+import com.java.loan.services.UserSerive;
 import com.java.loan.validation.RegisterValidator;
 
 
 @Controller
 public class LoanController {
+	
+	@Autowired
+	UserSerive userSerive;
 	
 	@Autowired
 	RegisterValidator registerValidator;
@@ -28,9 +32,11 @@ public class LoanController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String getLogin(){
+	public String getLoginPage(){
 		return "login";
 	}
+	
+
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String getRegisterPage(){
 		return "register";
@@ -43,7 +49,8 @@ public class LoanController {
 		if (msg.isError()){
 			return msg;
 		}
-		
+		System.out.println(" =======================");
+		msg = (Message)userSerive.registerUser(user);
 		return msg;
 	}
 
