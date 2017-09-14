@@ -1,4 +1,4 @@
-package com.java.loan.configuration.security;
+/*package com.java.loan.configuration.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -34,3 +34,4 @@ public class SSConfiguration extends WebSecurityConfigurerAdapter{
 	}
 
 }
+*/

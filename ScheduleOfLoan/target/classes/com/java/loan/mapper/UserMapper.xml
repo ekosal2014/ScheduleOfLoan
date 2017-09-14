@@ -22,8 +22,8 @@
     </select>
     
    <!--  Check Duplicated User Name -->
-    <select id="getUserNameExit" parameterType="String" resultType="int">
-    	SELECT COUNT(*) AS COUNT FROM tblUser WHERE username = #{username}
+    <select id="getUserNameExit" parameterType="String" resultMap="user">
+    	SELECT * FROM tblUser WHERE username = #{username}
     </select>
     
     <insert id="registerUser" parameterType="user" useGeneratedKeys="true" keyProperty="user_id" >

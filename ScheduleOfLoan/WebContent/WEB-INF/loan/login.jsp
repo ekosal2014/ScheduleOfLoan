@@ -41,16 +41,33 @@
 		</style>
 	</head>
 	<body>
-		<form>
+		<form method="post" action="${pageContext.request.contextPath }/login" id="frm-login">
 			<div class="login-container">
 				<label><b>Username</b></label>
 				<input type="text" name="username" required/>
 				<label><b>Password</b></label>
 				<input type="password" name="password" required/>
-				<button class="btn-login" type="submit">Login</button>
+				<button class="btn-login" id="">Login</button>
 				<input type="checkbox" name="remember" id="remember"/><label for="remember">Remember Me</label>
 				<a href="${pageContext.request.contextPath }/register" > Register</a>
 			</div>
 		</form>
 	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#frm-register').submit(function(e) {
+				var frm = $('#frm-login')
+				e.preventDefault();
+				var data = {};
+				var form = this;
+				
+				$.each(this,function(i,v){
+					var input = $(v);
+					data[input.attr("name")] = input.val();
+					delete(data["undefined")
+				});
+			});
+		});
+	</script>
 </html>

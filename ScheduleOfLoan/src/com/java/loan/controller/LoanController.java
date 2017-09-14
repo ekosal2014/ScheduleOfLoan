@@ -28,7 +28,7 @@ public class LoanController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getHomePage(){
-		return "index";
+		return "redirect:/login";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -36,6 +36,11 @@ public class LoanController {
 		return "login";
 	}
 	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public @ResponseBody Message getLogIn(@RequestParam String username,@RequestParam String password,Message message){
+		System.out.println(" ========= " + username + "  "+password);
+		return message;
+	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String getRegisterPage(){

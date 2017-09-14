@@ -21,12 +21,12 @@ public class UserSerive {
 	public Message registerUser(User user){
 		StringUtils util = new StringUtils();
 		Message message = new Message();
-		int cnt = 0;
+		User obj = new User();
 		int max = 0;
 		String userCode = "";
 		try{
-			cnt= userMapper.getUserNameExit(user.getUsername());
-			if (cnt > 0){
+			obj = userMapper.getUserNameExit(user.getUsername());
+			if (obj != null){
 				message.setCode("1111");
 				message.setMsg("User Name Already Exits!");
 			}else{

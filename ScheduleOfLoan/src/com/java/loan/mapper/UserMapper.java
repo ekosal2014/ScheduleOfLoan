@@ -23,5 +23,5 @@ import com.java.loan.model.User;
 	 * Check User Name Already Exit Or Not
 	 * ekosa 14-09-20417
 	 * */
-	public int getUserNameExit(@Param("username") String username);
+	public User getUserNameExit(@Param("username") String username);
 }
