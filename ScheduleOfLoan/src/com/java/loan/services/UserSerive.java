@@ -49,5 +49,30 @@ public class UserSerive {
 		}
 		return message;
 	}
+	
+	public Message getLogIn(String username,String password) {
+		Message message = new Message();
+		User user = new User();
+		try {
+			user = userMapper.getUserNameExit(username);
+			if ( user == null ) {
+				message.setCode("1111");
+				message.setMsg("User not Exits!");
+			}else {
+				if (!user.getPassword().equals(password)) {
+					message.setCode("1111");
+					message.setMsg("Password not match!");
+				}else {
+					message.setCode("0000");
+					message.setMsg("Login completed!");
+				}
+			}
+		}catch(Exception e) {
+			message.setCode("1111");
+			message.setMsg("Something wrong!");
+			e.printStackTrace();
+		}
+		return message;
+	}
 
 }
