@@ -15,9 +15,26 @@ public class SessionUtils {
 		session.setMaxInactiveInterval(60*60*60);
 	}
 	
-	public static void removeSessionLoan(HttpServletRequest request,User user) {
-		request.removeAttribute(SESSION_LOAN);
+	public static void removeSessionLoan(HttpSession session) {
+		session.removeAttribute(SESSION_LOAN);
 	}
 	
+	public static User getSessionLoan(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		HttpSession session = request.getSession(false);
+		
+		if (session != null){
+			if (session.getAttribute(SESSION_LOAN) == null){
+				throw new LoanException("0001","Session removed");
+			}else{
+				try{
+					return (User) session.getAttribute(SESSION_LOAN);
+				}catch(Exception e){
+					throw new LoanException("0001","Session removed");
+				}				
+			}
+		}else{
+			throw new LoanException("0001","Session removed");
+		}
+	}
 	
 }
