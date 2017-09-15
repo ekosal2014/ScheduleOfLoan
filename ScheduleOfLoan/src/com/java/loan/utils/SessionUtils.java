@@ -24,16 +24,16 @@ public class SessionUtils {
 		
 		if (session != null){
 			if (session.getAttribute(SESSION_LOAN) == null){
-				throw new LoanException("0001","Session removed");
+				throw new SessionException("0001","Session removed");
 			}else{
 				try{
 					return (User) session.getAttribute(SESSION_LOAN);
 				}catch(Exception e){
-					throw new LoanException("0001","Session removed");
+					throw new SessionException("0001","Session removed");
 				}				
 			}
 		}else{
-			throw new LoanException("0001","Session removed");
+			throw new SessionException("0001","Session removed");
 		}
 	}
 	

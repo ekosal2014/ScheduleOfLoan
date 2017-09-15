@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.java.loan.model.Message;
 import com.java.loan.model.User;
 import com.java.loan.services.UserSerive;
-import com.java.loan.utils.LoanException;
+import com.java.loan.utils.SessionException;
 import com.java.loan.utils.SessionUtils;
 import com.java.loan.validation.RegisterValidator;
 
@@ -62,8 +62,8 @@ public class LoanController {
 		return message;
 	}
 	
-	@ExceptionHandler(LoanException.class)
-	public void exceptionMsg(LoanException e,HttpServletResponse respone) throws IOException{
+	@ExceptionHandler(SessionException.class)
+	public void exceptionMsg(SessionException e,HttpServletResponse respone) throws IOException{
 		/*Message msg = new Message();
 		msg.setCode(e.getCode());
 		msg.setMsg(e.getMessage());

@@ -1,19 +1,19 @@
 package com.java.loan.utils;
 
-public class LoanException extends Exception{
+public class SessionException extends Exception{
 	private String code;
 	private String message;
 	
-	public LoanException() {
+	public SessionException() {
 		// TODO Auto-generated constructor stub
 		super();
 	}
-	public LoanException(String code){
+	public SessionException(String code){
 		super(code);
 		this.code = code;
 	}
 	
-	public LoanException(String code, String message){
+	public SessionException(String code, String message){
 		super(message);
 		this.code = code;
 		this.message = message;
