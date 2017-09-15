@@ -73,7 +73,14 @@
 		            url: frm.attr('action'),
 		            data : data,
 		            success : function(json){
-		            	console.log(json)
+		            	console.log(json);
+		            	if (json.code != '0000'){
+		            		alert(json.msg);
+		            		return;
+		            	}else{
+		            		window.location.href = "${pageContext.request.contextPath }/home";
+		            	}
+		            	
 		            },
 		            error : function(){
 		               console.log('error');

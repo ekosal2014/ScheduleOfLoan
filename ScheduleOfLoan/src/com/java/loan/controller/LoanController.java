@@ -1,8 +1,11 @@
 package com.java.loan.controller;
 
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +40,11 @@ public class LoanController {
 	public String getHomePage(){
 		return "redirect:/login";
 	}
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String getHomePages(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		return "index";
+	}
+	
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String getLoginPage(){
@@ -44,20 +52,23 @@ public class LoanController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-
-	public @ResponseBody Message getLogIn(@RequestParam String username,@RequestParam String password,HttpServletRequest request,HttpServletResponse respone,Exception e) throws Exception{
+	public @ResponseBody Message getLogIn(@RequestParam String username,@RequestParam String password,HttpSession session) throws Exception{
 		Message message = new Message();
-		SessionUtils.getSessionLoan(request, respone);
-		message.setCode(e.getMessage());
+/*		User user = new User();
+		user.setUsername(username);
+		user.setPassword(password);
+		SessionUtils.setSessionLoan(session, user);*/
+		message = userSerive.getLogIn(username, password, session);
 		return message;
 	}
 	
 	@ExceptionHandler(LoanException.class)
-	public @ResponseBody Message exceptionMsg(LoanException e){
-		Message msg = new Message();
+	public void exceptionMsg(LoanException e,HttpServletResponse respone) throws IOException{
+		/*Message msg = new Message();
 		msg.setCode(e.getCode());
 		msg.setMsg(e.getMessage());
-		return msg;
+		return msg;*/
+		respone.sendRedirect("./login");
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)

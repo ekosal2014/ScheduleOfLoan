@@ -1,11 +1,14 @@
 package com.java.loan.services;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.loan.mapper.UserMapper;
 import com.java.loan.model.Message;
 import com.java.loan.model.User;
+import com.java.loan.utils.SessionUtils;
 import com.java.loan.utils.StringUtils;
 
 @Service
@@ -50,7 +53,7 @@ public class UserSerive {
 		return message;
 	}
 	
-	public Message getLogIn(String username,String password) {
+	public Message getLogIn(String username,String password,HttpSession session) {
 		Message message = new Message();
 		User user = new User();
 		try {
@@ -63,6 +66,7 @@ public class UserSerive {
 					message.setCode("1111");
 					message.setMsg("Password not match!");
 				}else {
+					//SessionUtils.setSessionLoan(session, user);
 					message.setCode("0000");
 					message.setMsg("Login completed!");
 				}
