@@ -4,8 +4,9 @@
     pageEncoding="EUC-KR"%>
 <%
 	String checkLogin = "";
+    User user = SessionUtils.getSessionLoan(request, response);		
 	try{
-		User user = SessionUtils.getSessionLoan(request, response);		
+		
 	}catch(Exception e){
 			checkLogin = "<script language='javascript'>";
 			checkLogin += "window.onload=function(){";
