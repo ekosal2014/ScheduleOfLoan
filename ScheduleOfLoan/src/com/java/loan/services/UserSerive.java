@@ -66,7 +66,7 @@ public class UserSerive {
 					message.setCode("1111");
 					message.setMsg("Password not match!");
 				}else {
-					//SessionUtils.setSessionLoan(session, user);
+					SessionUtils.setSessionLoan(session, user);
 					message.setCode("0000");
 					message.setMsg("Login completed!");
 				}

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.java.loan.model.Message;
 import com.java.loan.model.User;
 import com.java.loan.services.UserSerive;
+import com.java.loan.utils.LoanException;
 import com.java.loan.utils.SessionException;
 import com.java.loan.utils.SessionUtils;
 import com.java.loan.validation.RegisterValidator;
@@ -42,7 +43,21 @@ public class LoanController {
 	}
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String getHomePages(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		return "main-layout";
+	}
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String getIndexPages(HttpServletRequest request,HttpServletResponse respone) throws Exception{
 		return "index";
+	}
+	
+	@RequestMapping(value = "/mywallet", method = RequestMethod.GET)
+	public String getMyWalletPage(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		return "mywallet";
+	}
+	
+	@RequestMapping(value = "/borrower", method = RequestMethod.GET)
+	public String getBorrowerPage(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		return "borrower";
 	}
 	
 	
@@ -63,12 +78,15 @@ public class LoanController {
 	}
 	
 	@ExceptionHandler(SessionException.class)
-	public void exceptionMsg(SessionException e,HttpServletResponse respone) throws IOException{
-		/*Message msg = new Message();
+	public void sessionException(SessionException e,HttpServletResponse respone) throws IOException{
+		respone.sendRedirect("./login");
+	}
+	@ExceptionHandler(LoanException.class)
+	public @ResponseBody Message messageException(LoanException e) {
+		Message msg = new Message();
 		msg.setCode(e.getCode());
 		msg.setMsg(e.getMessage());
-		return msg;*/
-		respone.sendRedirect("./login");
+		return msg;
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)

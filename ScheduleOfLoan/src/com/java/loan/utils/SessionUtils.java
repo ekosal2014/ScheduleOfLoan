@@ -12,7 +12,7 @@ public class SessionUtils {
 	
 	public static void setSessionLoan(HttpSession session,User user) {
 		session.setAttribute(SESSION_LOAN, user);
-		session.setMaxInactiveInterval(60*60*60);
+		session.setMaxInactiveInterval(60*60);
 	}
 	
 	public static void removeSessionLoan(HttpSession session) {
