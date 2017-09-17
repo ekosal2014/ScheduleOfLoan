@@ -9,7 +9,7 @@
 			checkLogin = "<script language='javascript'>";
 			checkLogin += "window.onload=function(){";
 			checkLogin += "alert('Session Removed!');";
-			checkLogin += "window.location.href = './login';";
+			checkLogin += "window.parent.location.href = './login';";
 			checkLogin += "}";
 			checkLogin += "</script>";
 	}

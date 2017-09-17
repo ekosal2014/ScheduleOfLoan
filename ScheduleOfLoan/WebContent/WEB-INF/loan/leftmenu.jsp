@@ -14,28 +14,28 @@
 	<div>
 		<ul class="sidebar-menu">
 			<li class="menu-active">
-				<a href="javascript:" data="${pageContext.request.contextPath }/home">HOME</a>
+				<a href="javascript:" data="${pageContext.request.contextPath }/index">HOME</a>
 			</li>
 			<li>
 				<a href="javascript:" data="${pageContext.request.contextPath }/mywallet">MY WALLET</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath }/borrower">BORROWERS</a>
+				<a href="javascript:" data="${pageContext.request.contextPath }/borrower">BORROWERS</a>
 			</li>
 			<li>
-				<a href="javascript:">LOANS</a>
+				<a href="javascript:" data="${pageContext.request.contextPath }/loans">LOANS</a>
 			</li>
 			<li>
-				<a href="javascript:">MISSED PAYMENTS</a>
+				<a href="javascript:" data="${pageContext.request.contextPath }/missed-payment">MISSED PAYMENTS</a>
 			</li>
 			<li>
-				<a href="javascript:">PAYMENTS</a>
+				<a href="javascript:" data="${pageContext.request.contextPath }/payments">PAYMENTS</a>
 			</li>
 			<li>
-				<a href="javascript:">EMPLOYEE</a>
+				<a href="javascript:" data="${pageContext.request.contextPath }/employee">EMPLOYEE</a>
 			</li>
 			<li>
-				<a href="javascript:">COMPANY ROLES</a>
+				<a href="javascript:" data="${pageContext.request.contextPath }/company">COMPANY ROLES</a>
 			</li>
 		</ul>
 	</div>

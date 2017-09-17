@@ -14,6 +14,7 @@ public class User {
 	private String createby;
 	private String createdate;
 	private String sts;
+	private String photo;
 	public int getUser_id() {
 		return user_id;
 	}
@@ -92,6 +93,12 @@ public class User {
 	}
 	public void setSts(String sts) {
 		this.sts = sts;
+	}
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	
 

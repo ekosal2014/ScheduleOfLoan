@@ -23,7 +23,7 @@
     
    <!--  Check Duplicated User Name -->
     <select id="getUserNameExit" parameterType="String" resultMap="user">
-    	SELECT * FROM tblUser WHERE username = #{username}
+    	SELECT * FROM tblUser WHERE username = #{username} AND sts != 3
     </select>
     
     <insert id="registerUser" parameterType="user" useGeneratedKeys="true" keyProperty="user_id" >

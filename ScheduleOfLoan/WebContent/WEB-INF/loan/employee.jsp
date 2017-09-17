@@ -2,19 +2,19 @@
     pageEncoding="ISO-8859-1"%>
 	<%@include file="header.jsp" %>
 	<body>
-			<div class="content">
 		
-					<div class="content-box border-green">
+				<div class="content">
+					<div class="content-box border-blue">
 						<div class="content-box-head">
 								<span class="count-top">
 										<i class="fa fa-briefcase" aria-hidden="true"></i>
-										TOTAL BORROWERS
+										My Wallet
 								</span>
-								<span class="count">100</span>
-								<!--<span class="count-bottom">
+								<span class="count">$ 10,000,000</span>
+								<span class="count-bottom">
 									<a href="javascript;">Add</a> | 
 									<a href="javascript:">Delete</a>
-								</span>-->
+								</span>
 						</div>
 						<div class="content-box-body">
 							<div class="content-categoris"> 
@@ -37,12 +37,6 @@
 											<!--<input type="search" class="form-control input-dt" placeholder="">~
 											<input type="search" class="form-control input-dt" placeholder="">-->
 											<input type="search" class="form-control input-search" placeholder="">
-											<select class="form-control input-rows">
-												<option value="10">safasdfasfdsadfs</option>
-												<option value="25">25</option>
-												<option value="50">50</option>
-												<option value="100">100</option>
-											</select>
 											<input class="btn btn-default" type="button" value="Search" style="width:100px;">
 										</label>										
 									</div>
@@ -54,11 +48,11 @@
 										<tr>
 										    <th></th>
 											<th>No</th>
-											<th>code</th>											
-											<th>Name</th>
+											<th>Full Name</th>											
 											<th>Gender</th>
 											<th>Phone</th>
-											<th>Email</th>
+											<th>E-mail</th>
+											<th>UserName</th>
 											<th>Status</th>
 											<th></th>
 										</tr>
@@ -67,68 +61,68 @@
 										<tr>
 											<td class="t-center"><input type="checkbox"/></td>
 											<td class="t-center">001</td>
-											<td class="t-right">B000000001-</td>											
-											<td class="t-right">E Kosal</td>
-											<td class="t-right">Male</td>
-											<td class="t-center">010-245-785</td>
-											<td class="t-center">longkosal7@gmail.com</td>
+											<td class="t-left">E Kosal</td>											
+											<td class="t-center">Male</td>
+											<td class="t-left">010-789-456</td>
+											<td class="t-left">longkosal7@gmail.com</td>
+											<td class="t-left">ekosal</td>
 											<td class="t-center">pending</td>
-											<td class="t-center"> view | delete </td>
+											<td class="t-center">view</td>
 										</tr>
 										<tr>
 											<td class="t-center"><input type="checkbox"/></td>
 											<td class="t-center">001</td>
-											<td class="t-right">B000000001-</td>											
-											<td class="t-right">E Kosal</td>
-											<td class="t-right">Male</td>
-											<td class="t-center">010-245-785</td>
-											<td class="t-center">longkosal7@gmail.com</td>
+											<td class="t-left">E Kosal</td>											
+											<td class="t-center">Male</td>
+											<td class="t-left">010-789-456</td>
+											<td class="t-left">longkosal7@gmail.com</td>
+											<td class="t-left">ekosal</td>
 											<td class="t-center">pending</td>
-											<td class="t-center"> view | delete </td>
+											<td class="t-center">view</td>
 										</tr>
 										<tr>
 											<td class="t-center"><input type="checkbox"/></td>
 											<td class="t-center">001</td>
-											<td class="t-right">B000000001-</td>											
-											<td class="t-right">E Kosal</td>
-											<td class="t-right">Male</td>
-											<td class="t-center">010-245-785</td>
-											<td class="t-center">longkosal7@gmail.com</td>
+											<td class="t-left">E Kosal</td>											
+											<td class="t-center">Male</td>
+											<td class="t-left">010-789-456</td>
+											<td class="t-left">longkosal7@gmail.com</td>
+											<td class="t-left">ekosal</td>
 											<td class="t-center">pending</td>
-											<td class="t-center"> view | delete </td>
+											<td class="t-center">view</td>
 										</tr>
 										<tr>
 											<td class="t-center"><input type="checkbox"/></td>
 											<td class="t-center">001</td>
-											<td class="t-right">B000000001-</td>											
-											<td class="t-right">E Kosal</td>
-											<td class="t-right">Male</td>
-											<td class="t-center">010-245-785</td>
-											<td class="t-center">longkosal7@gmail.com</td>
+											<td class="t-left">E Kosal</td>											
+											<td class="t-center">Male</td>
+											<td class="t-left">010-789-456</td>
+											<td class="t-left">longkosal7@gmail.com</td>
+											<td class="t-left">ekosal</td>
 											<td class="t-center">pending</td>
-											<td class="t-center"> view | delete </td>
+											<td class="t-center">view</td>
 										</tr>
 										<tr>
 											<td class="t-center"><input type="checkbox"/></td>
 											<td class="t-center">001</td>
-											<td class="t-right">B000000001-</td>											
-											<td class="t-right">E Kosal</td>
-											<td class="t-right">Male</td>
-											<td class="t-center">010-245-785</td>
-											<td class="t-center">longkosal7@gmail.com</td>
+											<td class="t-left">E Kosal</td>											
+											<td class="t-center">Male</td>
+											<td class="t-left">010-789-456</td>
+											<td class="t-left">longkosal7@gmail.com</td>
+											<td class="t-left">ekosal</td>
 											<td class="t-center">pending</td>
-											<td class="t-center"> view | delete </td>
+											<td class="t-center">view</td>
 										</tr>
 										<tr>
 											<td class="t-center"><input type="checkbox"/></td>
 											<td class="t-center">001</td>
-											<td class="t-right">B000000001-</td>											
-											<td class="t-right">E Kosal</td>
-											<td class="t-right">Male</td>
-											<td class="t-center">010-245-785</td>
-											<td class="t-center">longkosal7@gmail.com</td>
+											<td class="t-left">E Kosal</td>											
+											<td class="t-center">Male</td>
+											<td class="t-left">010-789-456</td>
+											<td class="t-left">longkosal7@gmail.com</td>
+											<td class="t-left">ekosal</td>
 											<td class="t-center">pending</td>
-											<td class="t-center"> view | delete </td>
+											<td class="t-center">view</td>
 										</tr>
 									</tbody>
 								</table>
@@ -152,9 +146,6 @@
 							<div style="clear:both;"></div>
 						</div>
 					</div>
-				
-			
-		</div>
-		
+				</div>
 	</body>
 </html>

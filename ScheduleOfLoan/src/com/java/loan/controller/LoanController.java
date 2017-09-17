@@ -10,6 +10,7 @@ import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -42,11 +43,13 @@ public class LoanController {
 		return "redirect:/login";
 	}
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String getHomePages(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+	public String getHomePages(HttpServletRequest request,HttpServletResponse respone,ModelMap map) throws Exception{
+		map.addAttribute("user", SessionUtils.getSessionLoan(request, respone));
 		return "main-layout";
 	}
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String getIndexPages(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		
 		return "index";
 	}
 	
@@ -60,6 +63,25 @@ public class LoanController {
 		return "borrower";
 	}
 	
+	@RequestMapping(value = "/loans", method = RequestMethod.GET)
+	public String getLoanPage(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		return "loans";
+	}
+	
+	@RequestMapping(value = "/missed-payment", method = RequestMethod.GET)
+	public String getMissedPaymentPage(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		return "missedpayment";
+	}
+	
+	@RequestMapping(value = "/payments", method = RequestMethod.GET)
+	public String getPaymentsPage(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		return "payments";
+	}
+	
+	@RequestMapping(value = "/employee", method = RequestMethod.GET)
+	public String getEmployeePage(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		return "employee";
+	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String getLoginPage(){
@@ -69,10 +91,6 @@ public class LoanController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public @ResponseBody Message getLogIn(@RequestParam String username,@RequestParam String password,HttpSession session) throws Exception{
 		Message message = new Message();
-/*		User user = new User();
-		user.setUsername(username);
-		user.setPassword(password);
-		SessionUtils.setSessionLoan(session, user);*/
 		message = userSerive.getLogIn(username, password, session);
 		return message;
 	}
