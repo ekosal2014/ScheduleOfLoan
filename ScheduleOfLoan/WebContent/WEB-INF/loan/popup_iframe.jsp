@@ -1,2 +1,2 @@
 <%@page contentType="text/html;charset=utf-8" %>
-<iframe id="" name="" style="-webkit-border-radius:15px;display:none; left: 470px; position: absolute; top: 0px; z-index: 900;width:848px; height:628px; right:255px; opacity: 1;  background-color:white;"></iframe>
+<iframe id="mywalletadd_iframe" name="mywalletadd_iframe" style="-webkit-border-radius:15px;display:none; left: 470px; position: absolute; top: 0px; z-index: 900;width:848px; height:628px; right:255px; opacity: 1;  background-color:white;"></iframe>

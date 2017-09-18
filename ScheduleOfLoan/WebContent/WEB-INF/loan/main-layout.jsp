@@ -20,6 +20,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="${pageContext.request.contextPath }/static/js/loanPopup.js"></script>
 		<script src="${pageContext.request.contextPath }/static/js/main.js"></script>
-		
+		<%@include file="popup_iframe.jsp" %>
 	</body>
 </html>
