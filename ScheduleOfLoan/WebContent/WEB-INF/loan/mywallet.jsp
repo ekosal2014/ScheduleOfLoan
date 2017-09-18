@@ -2,7 +2,6 @@
     pageEncoding="ISO-8859-1"%>
 	<%@include file="header.jsp" %>
 	<body>
-	<body>
 
 				
 				<div class="content">
@@ -14,7 +13,7 @@
 								</span>
 								<span class="count">$ 10,000,000</span>
 								<span class="count-bottom">
-									<a href="javascript;">Add</a> | 
+									<a href="javascript;" id="btn-addPopup">Add</a> | 
 									<a href="javascript:">Delete</a>
 								</span>
 						</div>
@@ -245,4 +244,13 @@
 				</div>
 			
 	</body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			 <script type="text/javascript">  
+			 	$(document).ready(function(){
+			 		$('#btn-addPopup').click(function(){
+			 			top.loan.popup.openPopup('mywalletadd');
+			 		});
+			 	});
+ 			 </script>
 </html>
+		

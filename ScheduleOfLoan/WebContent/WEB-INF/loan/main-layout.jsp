@@ -8,9 +8,9 @@
 	</head>	
 	<body class="body-wrapper">
 		<div class="wrapper">
-			<%@include file="leftmenu.jsp" %>
+			<%@include file="menu/leftmenu.jsp" %>
 			<div class="content-wrapper">
-				<%@include file="topmenu.jsp" %>		
+				<%@include file="menu/topmenu.jsp" %>		
 				
 				<iframe src="${pageContext.request.contextPath }/index" onload="resizeIframe(this);" id="ifr-layout" style="width: 100%;border:none;height: auto;"></iframe>			
 								

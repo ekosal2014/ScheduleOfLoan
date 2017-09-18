@@ -95,6 +95,15 @@ public class LoanController {
 		return message;
 	}
 	
+	/************************************
+	 * Open Popup Form
+	 * My Wallet Popup Forms
+	 * **********************************/
+	@RequestMapping(value="/mywalletadd", method = RequestMethod.GET)
+	public String getPopupMywallet(){
+		return "popup/mywallet";
+	}
+	
 	@ExceptionHandler(SessionException.class)
 	public void sessionException(SessionException e,HttpServletResponse respone) throws IOException{
 		respone.sendRedirect("./login");
