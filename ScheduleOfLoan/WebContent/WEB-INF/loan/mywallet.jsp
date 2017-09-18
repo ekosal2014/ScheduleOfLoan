@@ -35,8 +35,8 @@
 								<div class="col-sm-8">
 									<div style="text-align:right;">
 										<label>Search:
-											<input type="search" class="form-control input-dt" placeholder="">~
-											<input type="search" class="form-control input-dt" placeholder="">
+											<input type="search" class="form-control input-dt" id="txt_dtStart" readonly="readonly">~
+											<input type="search" class="form-control input-dt" id="txt_dtEnd" placeholder="">
 											<input type="search" class="form-control input-search" placeholder="">
 											<input class="btn btn-default" type="button" value="Search" style="width:100px;">
 										</label>										
@@ -243,14 +243,10 @@
 					</div>
 				</div>
 			
-	</body>
+	</body>	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-			 <script type="text/javascript">  
-			 	$(document).ready(function(){
-			 		$('#btn-addPopup').click(function(){
-			 			top.loan.popup.openPopup('mywalletadd');
-			 		});
-			 	});
- 			 </script>
+		<script src="${pageContext.request.contextPath }/static/js/jquery-ui-1.9.2.custom.js" charset="UTF-8"></script>
+		<script src="${pageContext.request.contextPath }/static/js/mywallet.js" charset="UTF-8"></script>
+			
 </html>
 		
