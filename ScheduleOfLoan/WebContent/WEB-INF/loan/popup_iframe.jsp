@@ -1,2 +1,3 @@
-<%@page contentType="text/html;charset=utf-8" %>
-<iframe id="mywalletadd_iframe" name="mywalletadd_iframe" style="-webkit-border-radius:15px;display:none; left: 470px; position: absolute; top: 0px; z-index: 900;width:848px; height:628px; right:255px; opacity: 1;  background-color:white;"></iframe>
+
+<iframe id="mywalletadd_iframe" name="mywalletadd_iframe" style="display:none; left: 470px; position: absolute; top: 300px; z-index: 900;width:650px;border:none; height:295px; right:255px; opacity: 1;  background-color:white;"></iframe>
+<iframe id="borrowerpopup_iframe" name="borrowerpopup_iframe" style="display:none; left: 470px; position: absolute; top: 300px; z-index: 900;width:800px;border:none; height:454px; right:255px; opacity: 1;  background-color:white;"></iframe>

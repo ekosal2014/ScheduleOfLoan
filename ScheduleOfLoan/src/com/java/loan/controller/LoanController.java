@@ -101,7 +101,14 @@ public class LoanController {
 	 * **********************************/
 	@RequestMapping(value="/mywalletadd", method = RequestMethod.GET)
 	public String getPopupMywallet(){
-		return "popup/mywallet";
+		return "popup/mywallet_add";
+	}
+	/************************************
+	 * My Wallet Popup Forms
+	 * **********************************/
+	@RequestMapping(value="/borrowerpopup", method = RequestMethod.GET)
+	public String getPopupBorrower(){
+		return "popup/borrower_popup";
 	}
 	
 	@ExceptionHandler(SessionException.class)

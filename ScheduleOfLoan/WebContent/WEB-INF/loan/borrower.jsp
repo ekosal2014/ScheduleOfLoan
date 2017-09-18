@@ -2,8 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 	<%@include file="header.jsp" %>
 	<body>
-			<div class="content">
-		
+			<div class="content">		
 					<div class="content-box border-green">
 						<div class="content-box-head">
 								<span class="count-top">
@@ -73,7 +72,10 @@
 											<td class="t-center">010-245-785</td>
 											<td class="t-center">longkosal7@gmail.com</td>
 											<td class="t-center">pending</td>
-											<td class="t-center"> view | delete </td>
+											<td class="t-center"> 
+												<a href="javascript:" class="btnViewBorrower">view</a> | 
+												<a href="javascript:">delete</a>
+											</td>
 										</tr>
 										<tr>
 											<td class="t-center"><input type="checkbox"/></td>
@@ -84,7 +86,10 @@
 											<td class="t-center">010-245-785</td>
 											<td class="t-center">longkosal7@gmail.com</td>
 											<td class="t-center">pending</td>
-											<td class="t-center"> view | delete </td>
+											<td class="t-center"> 
+												<a href="javascript:" class="btnViewBorrower">view</a> | 
+												<a href="javascript:">delete</a>
+											</td>
 										</tr>
 										<tr>
 											<td class="t-center"><input type="checkbox"/></td>
@@ -95,7 +100,10 @@
 											<td class="t-center">010-245-785</td>
 											<td class="t-center">longkosal7@gmail.com</td>
 											<td class="t-center">pending</td>
-											<td class="t-center"> view | delete </td>
+											<td class="t-center"> 
+												<a href="javascript:" class="btnViewBorrower">view</a> | 
+												<a href="javascript:">delete</a>
+											</td>
 										</tr>
 										<tr>
 											<td class="t-center"><input type="checkbox"/></td>
@@ -155,6 +163,7 @@
 				
 			
 		</div>
-		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="${pageContext.request.contextPath }/static/js/borrower.js"></script>
 	</body>
 </html>
