@@ -11,7 +11,7 @@
 		<result property="reg_user"     column="reg_user"/>
 	</resultMap>
 	
-	<select id="myWalletList">
+	<select id="myWalletList" resultMap="mywallet">
 		SELECT 
 			  wallet_id
 			, balance_old
@@ -53,4 +53,7 @@
 			   , #{reg_user}
 				)
 	</insert>
+	<delete id="myWalletDeleteById" >
+	
+	</delete>
 </mapper>
