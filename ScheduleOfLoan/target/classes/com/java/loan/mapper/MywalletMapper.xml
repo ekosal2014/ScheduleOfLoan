@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.loan.mapper.MywalletMapper">
+	<resultMap type="com.java.loan.model.Mywallet" id="mywallet">
+		<id property="wallet_id"        column="wallet_id"/>
+		<result property="balance_old"  column="balance_old"/>
+		<result property="amount"       column="amount"/>
+		<result property="balance_new"  column="balance_new"/>
+		<result property="description"  column="description"/>
+		<result property="reg_date"     column="reg_date"/>
+		<result property="reg_user"     column="reg_user"/>
+	</resultMap>
+	
+	<select id="myWalletList">
+		SELECT 
+			  wallet_id
+			, balance_old
+			, amount
+			, balance_new
+			, description
+		FROM tblMywallet
+	</select>
+	<select id="myWallet">
+		SELECT 
+			*		
+		FROM tblMywallet 
+		WHERE wallet_id = #{wallet_id}
+	</select>
+	<select id="myWalletGetMaxRecord" resultType="mywallet">
+		SELECT 
+			  * 
+		FROM tblMywallet
+		WHERE wallet_id = (
+							SELECT MAX(wallet_id) AS WALLETID FROM tblMywallet
+						   )	
+	</select>
+	<insert id="myWalletInsert" parameterType="mywallet" keyProperty="wallet_id" useGeneratedKeys="true">
+		INSERT INTO 
+			tblMywallet(
+			   	 balance_old
+			   , amount
+			   , balance_new
+			   , description
+			   , reg_date
+			   , reg_user
+			  )
+		VALUES(
+			     #{balance_old}
+			   , #{amount}
+			   , #{balance_new}
+			   , #{description}
+			   , #{reg_date}
+			   , #{reg_user}
+				)
+	</insert>
+</mapper>
