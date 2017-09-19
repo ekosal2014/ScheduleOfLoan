@@ -38,10 +38,10 @@ public class MywalletSerivce {
 		}
 		
 	}
-	/********************************
+	/***************************************************************
 	 * select list from MyWallet
 	 * e kosal
-	 * */
+	 * *************************************************************/
 	public List<Mywallet> myWalletList(){
 		try{
 			return new ArrayList<Mywallet>(mywalletMapper.myWalletList()) ;
@@ -49,6 +49,14 @@ public class MywalletSerivce {
 			return null;
 		}
 	}
-	
+	public Message myWalletDeleteById(int walletId) throws LoanException{
+		try{
+			mywalletMapper.myWalletDeleteById(walletId);
+			return new Message("0000", "ប្រតិបត្ដិការរបស់លោកអ្នកទទួលបានជោគជ័យ");
+		}catch(Exception e){
+			throw new LoanException("9999", "ប្រតិបត្ដិការរបស់លោកអ្នកទទួលបរាជ័យ");
+		}
+		
+	}
 	
 }

@@ -10,7 +10,9 @@
 		<result property="reg_date"     column="reg_date"/>
 		<result property="reg_user"     column="reg_user"/>
 	</resultMap>
-	
+	<!-- *******************************************
+		select list wallet from table tblMywallet
+	 ********************************************-->
 	<select id="myWalletList" resultMap="mywallet">
 		SELECT 
 			  wallet_id
@@ -20,12 +22,18 @@
 			, description
 		FROM tblMywallet
 	</select>
-	<select id="myWallet">
+	<!-- *******************************************************
+		select data from table tblMywallet by wallet id to edit 
+		*****************************************************-->
+	<select id="myWalletRecord" parameterType="int" resultMap="mywallet">
 		SELECT 
 			*		
 		FROM tblMywallet 
 		WHERE wallet_id = #{wallet_id}
 	</select>
+	 <!-- **************************************************************************
+	 		get record from table tblMywallet by max wallet id to calculate new balance 
+	  *************************************************************************** -->
 	<select id="myWalletGetMaxRecord" resultType="mywallet">
 		SELECT 
 			  * 
@@ -34,6 +42,9 @@
 							SELECT MAX(wallet_id) AS WALLETID FROM tblMywallet
 						   )	
 	</select>
+	<!-- *************************************************************
+		insert new record into tblMywallet 
+		***********************************************************-->
 	<insert id="myWalletInsert" parameterType="mywallet" keyProperty="wallet_id" useGeneratedKeys="true">
 		INSERT INTO 
 			tblMywallet(
@@ -53,7 +64,11 @@
 			   , #{reg_user}
 				)
 	</insert>
-	<delete id="myWalletDeleteById" >
-	
+	<!-- *************************************************************
+		delete record into tblMywallet 
+		***********************************************************-->
+	<delete id="myWalletDeleteById" parameterType="int">
+		DELETE FROM tblMywallet
+		WHERE wallet_id = #{walletId}
 	</delete>
 </mapper>
