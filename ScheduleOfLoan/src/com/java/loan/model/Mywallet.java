@@ -8,7 +8,7 @@ public class Mywallet {
 	private long amount;
 	private String amout_type;
 	private long balance_new;
-	private String description;
+	private String descriptions;
 	private Date reg_date;
 	private int reg_user;
 	public int getWallet_id() {
@@ -43,10 +43,10 @@ public class Mywallet {
 		this.balance_new = balance_new;
 	}
 	public String getDescription() {
-		return description;
+		return descriptions;
 	}
 	public void setDescription(String description) {
-		this.description = description;
+		this.descriptions = description;
 	}
 	public Date getReg_date() {
 		return reg_date;

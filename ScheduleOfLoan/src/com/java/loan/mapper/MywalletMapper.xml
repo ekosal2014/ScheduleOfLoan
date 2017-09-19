@@ -6,7 +6,7 @@
 		<result property="balance_old"  column="balance_old"/>
 		<result property="amount"       column="amount"/>
 		<result property="balance_new"  column="balance_new"/>
-		<result property="description"  column="description"/>
+		<result property="descriptions"  column="descriptions"/>
 		<result property="reg_date"     column="reg_date"/>
 		<result property="reg_user"     column="reg_user"/>
 	</resultMap>
@@ -19,7 +19,7 @@
 			, balance_old
 			, amount
 			, balance_new
-			, description
+			, descriptions
 		FROM tblMywallet
 	</select>
 	<!-- *******************************************************
@@ -51,7 +51,8 @@
 			   	 balance_old
 			   , amount
 			   , balance_new
-			   , description
+			   , amout_type
+			   , descriptions
 			   , reg_date
 			   , reg_user
 			  )
@@ -59,7 +60,8 @@
 			     #{balance_old}
 			   , #{amount}
 			   , #{balance_new}
-			   , #{description}
+			   , #{amout_type}
+			   , #{descriptions}
 			   , #{reg_date}
 			   , #{reg_user}
 				)

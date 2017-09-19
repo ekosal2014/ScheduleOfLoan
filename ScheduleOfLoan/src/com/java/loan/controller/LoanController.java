@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.savedrequest.DefaultSavedRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -21,7 +22,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.java.loan.model.Message;
+import com.java.loan.model.Mywallet;
 import com.java.loan.model.User;
+import com.java.loan.services.MywalletService;
 import com.java.loan.services.UserSerive;
 import com.java.loan.utils.LoanException;
 import com.java.loan.utils.SessionException;
@@ -37,6 +40,9 @@ public class LoanController {
 	
 	@Autowired
 	RegisterValidator registerValidator;
+	
+	@Autowired 
+	MywalletService mywalletService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getHomePage(){
@@ -111,16 +117,26 @@ public class LoanController {
 		return "popup/borrower_popup";
 	}
 	
+	@RequestMapping(value = "/mywalletAdd", method = RequestMethod.POST)
+	public @ResponseBody Message mywalletAddAction(@ModelAttribute Mywallet wallet,HttpServletRequest request,HttpServletResponse respone) throws Exception {
+		User user = SessionUtils.getSessionLoan(request, respone);
+		return mywalletService.myWalletInsert(wallet, user);		
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public @ResponseBody Mywallet mywalletViewRecord(HttpServletRequest request,HttpServletResponse respone) {
+		return new Mywallet();
+	}
+	
 	@ExceptionHandler(SessionException.class)
 	public void sessionException(SessionException e,HttpServletResponse respone) throws IOException{
+		respone.setHeader("location","/login");
+		//System.out.println("   ============= "+request.getHeader("referer"));
 		respone.sendRedirect("./login");
 	}
 	@ExceptionHandler(LoanException.class)
 	public @ResponseBody Message messageException(LoanException e) {
-		Message msg = new Message();
-		msg.setCode(e.getCode());
-		msg.setMsg(e.getMessage());
-		return msg;
+		return new Message(e.getCode(), e.getMessage());
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)

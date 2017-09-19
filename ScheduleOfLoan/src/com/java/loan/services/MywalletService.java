@@ -13,7 +13,7 @@ import com.java.loan.model.User;
 import com.java.loan.utils.LoanException;
 
 @Service
-public class MywalletSerivce {
+public class MywalletService {
 
 	@Autowired
 	private MywalletMapper mywalletMapper;
