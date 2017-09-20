@@ -84,9 +84,7 @@ public class LoanController {
 		message = userSerive.getLogIn(username, password, session);
 		return message;
 	}
-	
-	
-	
+		
 	/************************************
 	 * My Wallet Popup Forms
 	 * **********************************/
@@ -108,7 +106,7 @@ public class LoanController {
 		if (msg.isError()){
 			return msg;
 		}
-		System.out.println(" =======================");
+		System.out.println(" ==================");
 		return userSerive.registerUser(user);
 	}
 

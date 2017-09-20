@@ -66,7 +66,7 @@
 		            success : function(json){
 		            	console.log(json);
 		            	if (typeof json.code == 'undefined' || json.code == '0001'){
-		            		alert('សិទ្ធិរបស់អ្នកត្រូវបានផ្ដាច់សូមធ្វើការចូលប្រព័ន្ធម្ដងទៀត');
+		            		alert(json.message);
 		            		window.parent.location.href = './login'
 		            	}else{
 		            		if (json.code == '0000'){

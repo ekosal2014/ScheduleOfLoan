@@ -1,6 +1,7 @@
 package com.java.loan.services;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,13 @@ public class MywalletService {
 	/********************************
 	 * insert new record into MyWallet
 	 * e kosal
-	 * */
+	 * ******************************/
 	public Message myWalletInsert(Mywallet wallet,User user) throws LoanException{
 		Mywallet mywallet = mywalletMapper.myWalletGetMaxRecord();
 		try{
 			wallet.setBalance_old(mywallet.getBalance_new());
 			wallet.setReg_user(user.getUser_id());
+			wallet.setReg_date(new Date());
 			if (wallet.getAmout_type().equals("0")){
 				wallet.setBalance_new(mywallet.getBalance_new() - wallet.getAmount());
 			}else {
