@@ -12,7 +12,7 @@ public class SessionUtils {
 	
 	public static void setSessionLoan(HttpSession session,User user) {
 		session.setAttribute(SESSION_LOAN, user);
-		session.setMaxInactiveInterval(60*1);
+		session.setMaxInactiveInterval(60*5);
 	}
 	
 	public static void removeSessionLoan(HttpSession session) {
@@ -34,6 +34,17 @@ public class SessionUtils {
 			}
 		}else{
 			throw new SessionException("0001","សិទ្ធិរបស់អ្នកត្រូវបានផ្ដាច់សូមធ្វើការចូលប្រព័ន្ធម្ដងទៀត");
+		}
+	}
+	
+	public static User getSessionLoanView(HttpServletRequest request){
+		System.out.println(" ================= Hello 11111 ====================");
+		try{
+			HttpSession session = request.getSession(false);
+			return (User) session.getAttribute(SESSION_LOAN);
+		}catch(Exception e){
+			e.printStackTrace();
+			return new User();
 		}
 	}
 	

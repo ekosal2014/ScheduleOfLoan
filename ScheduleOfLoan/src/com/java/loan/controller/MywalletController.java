@@ -16,8 +16,10 @@ import com.java.loan.model.User;
 import com.java.loan.services.MywalletService;
 import com.java.loan.utils.SessionUtils;
 
+
+
 @Controller
-public class MywalletController {
+public class MywalletController {	
 	
 	@Autowired 
 	MywalletService mywalletService;

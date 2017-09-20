@@ -1,9 +1,7 @@
 package com.java.loan.controller;
 
 
-import java.io.IOException;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,12 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import com.java.loan.model.Message;
-import com.java.loan.model.Mywallet;
 import com.java.loan.model.User;
-import com.java.loan.services.MywalletService;
 import com.java.loan.services.UserSerive;
 import com.java.loan.utils.LoanException;
-import com.java.loan.utils.SessionException;
 import com.java.loan.utils.SessionUtils;
 import com.java.loan.validation.RegisterValidator;
 
@@ -46,12 +40,11 @@ public class LoanController {
 	}
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String getHomePages(HttpServletRequest request,HttpServletResponse respone,ModelMap map) throws Exception{
-		map.addAttribute("user", SessionUtils.getSessionLoan(request, respone));
+		map.addAttribute("user", SessionUtils.getSessionLoanView(request));
 		return "main-layout";
 	}
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String getIndexPages(HttpServletRequest request,HttpServletResponse respone) throws Exception{
-		
 		return "index";
 	}	
 	
@@ -93,32 +86,14 @@ public class LoanController {
 	}
 	
 	
+	
 	/************************************
 	 * My Wallet Popup Forms
 	 * **********************************/
 	@RequestMapping(value="/borrowerpopup", method = RequestMethod.GET)
 	public String getPopupBorrower(){
 		return "popup/borrower_popup";
-	}
-		
-	
-	@ExceptionHandler(SessionException.class)
-	public void sessionException(HttpServletRequest request,SessionException e,HttpServletResponse response) throws IOException, ServletException{
-		//respone.setHeader("location","/login");
-		//System.out.println("   ============= "+request.getHeader("referer"));
-		//respone.sendRedirect("./login");
-		/*String url ="window.parent.location.href =\""+request.getContextPath()+"/login\"";
-		System.out.println("================= "+ url);
-		response.getWriter().write(url);*/
-		//System.out.println("================= "+ request.getContextPath() + "/login1");
-		response.sendRedirect("./");
-		//return new Message(e.getCode(),e.getMessage());
-	}
-	
-	@ExceptionHandler(LoanException.class)
-	public @ResponseBody Message messageException(LoanException e) {
-		return new Message(e.getCode(), e.getMessage());
-	}
+	}	
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String getRegisterPage(){

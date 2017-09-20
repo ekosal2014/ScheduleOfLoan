@@ -4,14 +4,24 @@
 	String checkLogin = "";
  	User user = new User();
 	try{
-		user = SessionUtils.getSessionLoan(request, response);		
-	}catch(Exception e){
+		user = SessionUtils.getSessionLoanView(request);	
+		if (user == null){
+			user = new User();
+			user.setTxt("9999");
 			checkLogin = "<script language='javascript'>";
 			checkLogin += "window.onload=function(){";
 			checkLogin += "alert('Session Removed!');";
 			checkLogin += "window.parent.location.href = './login';";
 			checkLogin += "}";
 			checkLogin += "</script>";
+		}
+	}catch(Exception e){
+			checkLogin = "<script language='javascript'>";
+			checkLogin += "window.onload=function(){";
+			checkLogin += "alert('Session Removed!');";
+			checkLogin += "window.parent.location.href = './login';";
+			checkLogin += "}";
+			checkLogin += "</script>"; 
 	}
 %> 
 <%=checkLogin %>
