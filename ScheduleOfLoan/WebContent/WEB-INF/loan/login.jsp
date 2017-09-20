@@ -75,7 +75,7 @@
 		            success : function(json){
 		            	console.log(json);
 		            	if (json.code != '0000'){
-		            		alert(json.msg);
+		            		alert(json.message);
 		            		return;
 		            	}else{
 		            		window.location.href = "${pageContext.request.contextPath }/home";

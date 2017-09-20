@@ -3,11 +3,13 @@ package com.java.loan.services;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.java.loan.mapper.UserMapper;
 import com.java.loan.model.Message;
 import com.java.loan.model.User;
+import com.java.loan.utils.LoanException;
 import com.java.loan.utils.SessionUtils;
 import com.java.loan.utils.StringUtils;
 
@@ -16,67 +18,66 @@ public class UserSerive {
 	
 	@Autowired
 	private UserMapper userMapper;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	 /* ****************************************
      * Register New Into Database
      * E Kosal
      * 13-09-2017
      */
-	public Message registerUser(User user){
-		StringUtils util = new StringUtils();
-		Message message = new Message();
+	public Message registerUser(User user) throws LoanException{
 		User obj = new User();
 		int max = 0;
 		String userCode = "";
+		
 		try{
 			obj = userMapper.getUserNameExit(user.getUsername());
 			if (obj != null){
-				message.setCode("1111");
-				message.setMsg("User Name Already Exits!");
+				return new Message("1111", "User Name Already Exits!");
 			}else{
 				max = userMapper.getMaxUserId() + 1;
-				userCode = "EMP-"+ util.leftPad(String.valueOf(max), 10, "0");
+				userCode = "EMP-"+ StringUtils.leftPad(String.valueOf(max), 10, "0");
 				user.setUser_code(userCode);
+				user.setPassword(passwordEncoder.encode(user.getPassword()));
 				if (userMapper.registerUser(user) > 0){
-					message.setCode("0000");
-					message.setMsg("Insert completed!");
+					return new Message("0000", "Insert completed!");
 				}else{
-					message.setCode("9999");
-					message.setMsg("Insert fails");
+					return new Message("9999", "Insert fails");
 				}
 			}
 			
 		}catch(Exception e){
-			message.setCode("9999");
-			message.setMsg("Insert fails");
 			e.printStackTrace();
+			throw new LoanException("9999", "Insert fails");
+			
 		}
-		return message;
 	}
-	
-	public Message getLogIn(String username,String password,HttpSession session) {
-		Message message = new Message();
+	/* ****************************************
+     * getLogIn Into Database
+     * E Kosal
+     * 13-09-2017
+     */
+	public Message getLogIn(String username,String password,HttpSession session) throws LoanException {
 		User user = new User();
 		try {
 			user = userMapper.getUserNameExit(username);
 			if ( user == null ) {
-				message.setCode("1111");
-				message.setMsg("User not Exits!");
+				return new Message("1111", "User not Exits!");
 			}else {
-				if (!user.getPassword().equals(password)) {
-					message.setCode("1111");
-					message.setMsg("Password not match!");
+				if (!passwordEncoder.matches(password, user.getPassword())) {
+					return new Message("1111", "Password not match!");
+				}else if (user.getSts().equals("2")){
+					return new Message("1111", "User can not use this system now. Pleas contect to Admin.");
 				}else {
 					SessionUtils.setSessionLoan(session, user);
-					message.setCode("0000");
-					message.setMsg("Login completed!");
+					return new Message("0000", "Login completed!");
 				}
 			}
 		}catch(Exception e) {
-			message.setCode("1111");
-			message.setMsg("Something wrong!");
 			e.printStackTrace();
+			throw new LoanException("1111", "Something wrong!");
+			
 		}
-		return message;
 	}
 
 }

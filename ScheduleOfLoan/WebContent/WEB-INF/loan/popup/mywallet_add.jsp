@@ -14,11 +14,11 @@
 			<div class="modal-body">
 				<div class="modal-wallet">
 					<label>Balance : </label>
-					<input type="text" class="form-control input-wallet" id="txt_amount" name="amount" placeholder=""> 
+					<input type="text" class="form-control input-wallet" id="amount" name="amount" placeholder=""> 
 				</div>
 			   <div class="modal-wallet">
 					<label>Type Balance :</label>
-						<select name="amout_type" class="form-control input-rows">
+						<select name="amout_type" id="amout_type" class="form-control input-rows">
 							<option value="">ជ្រើសរើស</option>
 							<option value="0">ចំណាយ</option>
 							<option value="1">ចំណូល</option>
@@ -27,7 +27,7 @@
 				</div>
 				<div class="modal-wallet">
 				   <label>Description :  </label>
-				   <textarea rows="3" style="width:300px;" id="txt_description" name="description"></textarea>				 
+				   <textarea rows="3" style="width:300px;" id="description" name="description"></textarea>				 
 				</div>
 			</div>
 			<div class="modal-footer">
@@ -42,7 +42,7 @@
 	<script src="${pageContext.request.contextPath }/static/js/lib/autoNumeric.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			 $('#txt_amount').autoNumeric('init',{ pSign: "s", pNeg: "r",aSep: ',',dGroup: '3',aSign: '',aPad: false,vMax: '9999999999',vMin: '0'});  
+			 $('#amount').autoNumeric('init',{ pSign: "s", pNeg: "r",aSep: ',',dGroup: '3',aSign: '',aPad: false,vMax: '9999999999',vMin: '0'});  
 			$('#btnClose').click(function(){
 				top.loan.popup.closePopup('mywalletadd');
 			});
@@ -50,19 +50,15 @@
 		    	var frm = $('#frm-mywallet');
 				e.preventDefault();
 				var data = {};
-
-				$.each(this,function(i,v){
-					var input = $(v);
-					
-					if (input.attr('name') == 'amount'){
-						data[input.attr("name")] = input.val().replace(/\,/g, '');
-					}else{
-						data[input.attr("name")] = input.val();
-					}
-					
-					delete(data["undefined"])
-				});
 				
+				if ($('#amout_type').val() == ''){
+					alert("Please choose type amount")
+					return;
+				}
+				data['amount']      = $('#amount').val().replace(/\,/g, '');
+				data['amout_type']  = $('#amout_type').val();
+				data['description'] = $('#description').val();
+								
 		        $.ajax({
 		            type: frm.attr('method'),
 		            url: frm.attr('action'),

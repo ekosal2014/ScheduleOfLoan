@@ -14,7 +14,7 @@
 								<span class="count">$ 10,000,000</span>
 								<span class="count-bottom">
 									<a href="javascript:" id="btn-addPopup">Add</a> | 
-									<a href="javascript:">Delete</a>
+									<!-- <a href="javascript:">Delete</a> -->
 								</span>
 						</div>
 						<div class="content-box-body">

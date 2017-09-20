@@ -15,6 +15,8 @@
     	<result property="createby"     column="createby"/>
     	<result property="createdate"   column="createdate"/>
     	<result property="sts"          column="sts"/>
+    	<result property="photo"        column="photo"/>
+    	<result property="txt"          column="txt"/>
     </resultMap>
     <!-- Get Max Index -->
     <select id="getMaxUserId" resultType="int">

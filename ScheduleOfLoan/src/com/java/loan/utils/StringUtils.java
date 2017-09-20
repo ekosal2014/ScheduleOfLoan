@@ -2,7 +2,7 @@ package com.java.loan.utils;
 
 public class StringUtils {
 
-	public String leftPad(String str,int number,String symbol){
+	public static String leftPad(String str,int number,String symbol){
 		String pad= "";
 		while(number > 0){
 			pad += symbol;

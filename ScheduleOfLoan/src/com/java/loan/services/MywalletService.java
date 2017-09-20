@@ -34,6 +34,7 @@ public class MywalletService {
 			mywalletMapper.myWalletInsert(wallet);
 			return new Message("0000","ប្រតិបត្ដិការរបស់លោកអ្នកទទួលបានជោគជ័យ");
 		}catch(Exception e){
+			e.printStackTrace();
 			throw new LoanException("9999","ប្រតិបត្ដិការរបស់លោកអ្នកទទួលបរាជ័យ");
 		}
 		

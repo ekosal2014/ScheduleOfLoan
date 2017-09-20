@@ -12,22 +12,22 @@ public class RegisterValidator{
 		User user = (User) obj;
 		msg.setError(false);
 		if (user.getUsername().equals("")) {
-			msg.setMsg("Please Enter User Name!");
+			msg.setMessage("Please Enter User Name!");
 			msg.setError(true);
 			return;
 		}
 		if (user.getPassword().equals("")) {
-			msg.setMsg("Please Enter Your Password!");
+			msg.setMessage("Please Enter Your Password!");
 			msg.setError(true);
 			return;
 		}
 		if (user.getConfirm_password().equals("")) {
-			msg.setMsg("Please Enter Your Password!");
+			msg.setMessage("Please Enter Your Password!");
 			msg.setError(true);
 			return;
 		}
 		if (!user.getPassword().equals(user.getConfirm_password())) {
-			msg.setMsg("Please Enter Your Password not match!");
+			msg.setMessage("Please Enter Your Password not match!");
 			msg.setError(true);
 			return;
 		}

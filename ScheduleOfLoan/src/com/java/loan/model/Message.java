@@ -24,11 +24,11 @@ public class Message {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public String getMsg() {
+	public String getMessage() {
 		return message;
 	}
-	public void setMsg(String msg) {
-		this.message = msg;
+	public void setMessage(String Message) {
+		this.message = Message;
 	}
 	
 	

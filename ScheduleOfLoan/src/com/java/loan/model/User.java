@@ -15,6 +15,7 @@ public class User {
 	private String createdate;
 	private String sts;
 	private String photo;
+	private String txt;
 	public int getUser_id() {
 		return user_id;
 	}
@@ -99,6 +100,12 @@ public class User {
 	}
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+	public String getTxt() {
+		return txt;
+	}
+	public void setTxt(String txt) {
+		this.txt = txt;
 	}
 	
 

@@ -3,7 +3,6 @@ package com.java.loan.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -122,10 +121,10 @@ public class LoanController {
 		return mywalletService.myWalletInsert(wallet, user);		
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/", method = RequestMethod.POST)
 	public @ResponseBody Mywallet mywalletViewRecord(HttpServletRequest request,HttpServletResponse respone) {
 		return new Mywallet();
-	}
+	}*/
 	
 	@ExceptionHandler(SessionException.class)
 	public void sessionException(HttpServletRequest request,SessionException e,HttpServletResponse response) throws IOException, ServletException{
@@ -152,15 +151,14 @@ public class LoanController {
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	
-	public @ResponseBody Message getRegister(@ModelAttribute User user){
+	public @ResponseBody Message getRegister(@ModelAttribute User user) throws LoanException{
 		Message msg = new Message();
 		registerValidator.validator(user, msg);
 		if (msg.isError()){
 			return msg;
 		}
 		System.out.println(" =======================");
-		msg = (Message)userSerive.registerUser(user);
-		return msg;
+		return userSerive.registerUser(user);
 	}
 
 }
