@@ -7,7 +7,7 @@
 			<div class="content-wrapper">
 				<%@include file="menu/topmenu.jsp" %>		
 				
-				<iframe src="${pageContext.request.contextPath }/index" onload="resizeIframe(this);" id="ifr-layout" style="width: 100%;border:none;height: auto;"></iframe>			
+				<iframe src="${pageContext.request.contextPath }/index" onload="resizeIframe(this);" id="ifr-layout" name="ifr-layout" style="width: 100%;border:none;height: auto;"></iframe>			
 								
 			</div>
 			<div class="main-footer"> Footer </div>

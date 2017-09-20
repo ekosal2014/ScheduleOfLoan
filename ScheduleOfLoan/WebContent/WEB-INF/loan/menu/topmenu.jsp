@@ -1,7 +1,7 @@
 <div class="main-header"> 
 	<ul class="navbar-right">
 		<li>
-			<a href="javascript:" style="padding-top:17px !important;">
+			<a href="javascript:" style="padding-top:13px !important;">
 				<img src="${pageContext.request.contextPath }/static/img/${user.photo }" width="25" height="25" class="profile"  alt="image"/>
 				${user.full_name }
 				<span class=" fa fa-angle-down"></span>

@@ -49,6 +49,7 @@ public class MywalletService {
 		try{
 			return new ArrayList<Mywallet>(mywalletMapper.myWalletList()) ;
 		}catch(Exception e){
+			e.printStackTrace();
 			return null;
 		}
 	}

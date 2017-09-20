@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 	<%@include file="header.jsp" %>
-	<body>
+	<body id="body-mywallet">
 
 				
 				<div class="content">
@@ -13,7 +13,7 @@
 								</span>
 								<span class="count">$ 10,000,000</span>
 								<span class="count-bottom">
-									<a href="javascript:" id="btn-addPopup">Add</a> | 
+									<a href="javascript:" id="btn-addPopup">Add</a>  
 									<!-- <a href="javascript:">Delete</a> -->
 								</span>
 						</div>
@@ -35,16 +35,16 @@
 								<div class="col-sm-8">
 									<div style="text-align:right;">
 										<label>Search:
-											<input type="search" class="form-control input-dt" id="txt_dtStart" readonly="readonly">~
-											<input type="search" class="form-control input-dt" id="txt_dtEnd" placeholder="">
-											<input type="search" class="form-control input-search" placeholder="">
+											<input type="text" class="form-control input-dt" id="txt_dtStart" name="txt_dtStart" readonly="readonly">~
+											<input type="text" class="form-control input-dt" id="txt_dtEnd" name="txt_dtEnd" readonly="readonly">
+											<!-- <input type="search" class="form-control input-search" placeholder=""> -->
 											<input class="btn btn-default" type="button" value="Search" style="width:100px;">
 										</label>										
 									</div>
 								</div>
 							</div>
 							<div class="content-controll-data">
-								<table class="tbl tbl-content">
+								<table class="tbl tbl-content" id="tblMywallet">
 									<thead>
 										<tr>
 										    <th></th>
@@ -56,160 +56,7 @@
 											<th></th>
 										</tr>
 									</thead>
-									<tbody>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">002</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">003</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">002</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">003</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">002</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">003</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">002</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">003</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">002</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">003</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">002</td>
-											<td class="t-right">$ 1,000,000</td>											
-											<td class="t-right">$ 100,000</td>
-											<td class="t-right">$ 1,100,000</td>
-											<td class="t-center">credit</td>
-											<td class="t-center">view</td>
-										</tr>
+									<tbody>										
 										<tr>
 											<td class="t-center"><input type="checkbox"/></td>
 											<td class="t-center">003</td>

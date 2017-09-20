@@ -33,7 +33,7 @@
 			.main-header{
 				position:relative;
 				width:100%;
-				height:60px;
+				height:50px;
 				background-color:white;
 				border-bottom:2px solid red;
 			}
@@ -129,7 +129,7 @@
 			    height: 100%;
 			}
 			.navbar-right li a{
-				padding: 23px 15px 15px;
+				padding: 18px 15px 15px;
 			    display: block;
 			    color: #515356!important;
 			    height: 100%;
@@ -147,7 +147,7 @@
 				padding: 2px 5px;
 				position: absolute;
 				right: 1px;
-				top: 15px;
+				top: 10px;
 			}
 			.navbar-right li a i {
 				font-size: 15px;
@@ -255,7 +255,7 @@
 			}
 			.content{
 				position:relative;
-				padding:15px;
+				padding:10px;
 				background-color:#f4f4f4;;
 				width:100%;
 			}
@@ -332,18 +332,18 @@
 				font-size:16px;
 				font-weight:bold;
 				color: #73879C;
-				padding:15px 10px;
+				padding:10px 10px;
 			}
 			.content-box-head .count{
 				font-size:28px;
 				font-weight:bold;
 				color: #73879C;
-				padding:0px 50px 10px;
+				padding:0px 50px 5px;
 			}
 			.content-box-head .count-bottom{
 				text-align:right;
 				padding-right:20px;
-				padding-bottom:10px;
+				padding-bottom:5px;
 			}
 			.content-categoris{
 				margin:10px; 0;

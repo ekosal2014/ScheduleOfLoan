@@ -20,8 +20,12 @@
 			, balance_old
 			, amount
 			, balance_new
+			, amout_type
 			, descriptions
+			, reg_date
+			, reg_user
 		FROM tblMywallet
+		ORDER BY wallet_id desc
 	</select>
 	<!-- *******************************************************
 		select data from table tblMywallet by wallet id to edit 

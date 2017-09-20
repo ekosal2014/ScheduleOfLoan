@@ -1,5 +1,7 @@
 package com.java.loan.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -43,10 +45,9 @@ public class MywalletController {
 		return mywalletService.myWalletInsert(wallet, user);		
 	}
 	
-
+	@RequestMapping(value = "/mywalletlist" , method = RequestMethod.GET)
+	public @ResponseBody List<Mywallet> mywalletList(){
+		return mywalletService.myWalletList();
+	}
 	
-	/*@RequestMapping(value = "/", method = RequestMethod.POST)
-	public @ResponseBody Mywallet mywalletViewRecord(HttpServletRequest request,HttpServletResponse respone) {
-		return new Mywallet();
-	}*/
 }
