@@ -1,4 +1,8 @@
 <!--<div class="main-header"> asdflf </div> -->
+<%@page import="com.java.loan.enums.UserTxt"%>
+<%
+	String txt = String.valueOf(user.getTxt());
+%>
 <div class="main-sidebar">
 	<div class="main-header"> asdflf </div>
 	<div class="user-infor">
@@ -13,9 +17,11 @@
 	</div>
 	<div>
 		<ul class="sidebar-menu">
-			<li class="menu-active">
-				<a href="javascript:" data="${pageContext.request.contextPath }/index">HOME</a>
-			</li>
+		    <% if (txt.equals(UserTxt.ADMIN.getValue())){ %>
+				<li class="menu-active">
+					<a href="javascript:" data="${pageContext.request.contextPath }/index">HOME</a>
+				</li>
+			<% } %>
 			<li>
 				<a href="javascript:" data="${pageContext.request.contextPath }/mywallet">MY WALLET</a>
 			</li>
@@ -31,12 +37,14 @@
 			<li>
 				<a href="javascript:" data="${pageContext.request.contextPath }/payments">PAYMENTS</a>
 			</li>
+			<%  if (txt.equals(UserTxt.ADMIN.getValue())){    %>
 			<li>
 				<a href="javascript:" data="${pageContext.request.contextPath }/employee">EMPLOYEE</a>
 			</li>
 			<li>
 				<a href="javascript:" data="${pageContext.request.contextPath }/company">COMPANY ROLES</a>
 			</li>
+			<% } %>
 		</ul>
 	</div>
 </div>

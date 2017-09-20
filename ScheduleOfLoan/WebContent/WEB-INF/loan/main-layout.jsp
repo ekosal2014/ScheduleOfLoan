@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-	<head>
-		<link href="${pageContext.request.contextPath }/static/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-		<link href="${pageContext.request.contextPath }/static/css/contents.css" rel="stylesheet">		
-	</head>	
+	<%@include file="header.jsp" %>
 	<body class="body-wrapper">
 		<div class="wrapper">
 			<%@include file="menu/leftmenu.jsp" %>

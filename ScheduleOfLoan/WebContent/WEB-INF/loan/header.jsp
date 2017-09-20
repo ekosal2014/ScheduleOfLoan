@@ -2,9 +2,9 @@
 <%@page import="com.java.loan.model.User"%>
  <%
 	String checkLogin = "";
-   
+ 	User user = new User();
 	try{
-		 User user = SessionUtils.getSessionLoan(request, response);		
+		user = SessionUtils.getSessionLoan(request, response);		
 	}catch(Exception e){
 			checkLogin = "<script language='javascript'>";
 			checkLogin += "window.onload=function(){";

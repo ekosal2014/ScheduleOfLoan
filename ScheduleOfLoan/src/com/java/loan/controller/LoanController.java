@@ -39,8 +39,6 @@ public class LoanController {
 	@Autowired
 	RegisterValidator registerValidator;
 	
-	@Autowired 
-	MywalletService mywalletService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getHomePage(){
@@ -55,12 +53,7 @@ public class LoanController {
 	public String getIndexPages(HttpServletRequest request,HttpServletResponse respone) throws Exception{
 		
 		return "index";
-	}
-	
-	@RequestMapping(value = "/mywallet", method = RequestMethod.GET)
-	public String getMyWalletPage(HttpServletRequest request,HttpServletResponse respone) throws Exception{
-		return "mywallet";
-	}
+	}	
 	
 	@RequestMapping(value = "/borrower", method = RequestMethod.GET)
 	public String getBorrowerPage(HttpServletRequest request,HttpServletResponse respone) throws Exception{
@@ -99,14 +92,7 @@ public class LoanController {
 		return message;
 	}
 	
-	/************************************
-	 * Open Popup Form
-	 * My Wallet Popup Forms
-	 * **********************************/
-	@RequestMapping(value="/mywalletadd", method = RequestMethod.GET)
-	public String getPopupMywallet(){
-		return "popup/mywallet_add";
-	}
+	
 	/************************************
 	 * My Wallet Popup Forms
 	 * **********************************/
@@ -114,17 +100,7 @@ public class LoanController {
 	public String getPopupBorrower(){
 		return "popup/borrower_popup";
 	}
-	
-	@RequestMapping(value = "/mywalletAdd", method = RequestMethod.POST)
-	public @ResponseBody Message mywalletAddAction(@ModelAttribute Mywallet wallet,HttpServletRequest request,HttpServletResponse respone) throws Exception {
-		User user = SessionUtils.getSessionLoan(request, respone);	
-		return mywalletService.myWalletInsert(wallet, user);		
-	}
-	
-	/*@RequestMapping(value = "/", method = RequestMethod.POST)
-	public @ResponseBody Mywallet mywalletViewRecord(HttpServletRequest request,HttpServletResponse respone) {
-		return new Mywallet();
-	}*/
+		
 	
 	@ExceptionHandler(SessionException.class)
 	public void sessionException(HttpServletRequest request,SessionException e,HttpServletResponse response) throws IOException, ServletException{
