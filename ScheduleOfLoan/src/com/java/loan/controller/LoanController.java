@@ -3,23 +3,22 @@ package com.java.loan.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.web.savedrequest.DefaultSavedRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import com.java.loan.model.Message;
 import com.java.loan.model.Mywallet;
@@ -119,7 +118,7 @@ public class LoanController {
 	
 	@RequestMapping(value = "/mywalletAdd", method = RequestMethod.POST)
 	public @ResponseBody Message mywalletAddAction(@ModelAttribute Mywallet wallet,HttpServletRequest request,HttpServletResponse respone) throws Exception {
-		User user = SessionUtils.getSessionLoan(request, respone);
+		User user = SessionUtils.getSessionLoan(request, respone);	
 		return mywalletService.myWalletInsert(wallet, user);		
 	}
 	
@@ -129,11 +128,18 @@ public class LoanController {
 	}
 	
 	@ExceptionHandler(SessionException.class)
-	public void sessionException(SessionException e,HttpServletResponse respone) throws IOException{
-		respone.setHeader("location","/login");
+	public void sessionException(HttpServletRequest request,SessionException e,HttpServletResponse response) throws IOException, ServletException{
+		//respone.setHeader("location","/login");
 		//System.out.println("   ============= "+request.getHeader("referer"));
-		respone.sendRedirect("./login");
+		//respone.sendRedirect("./login");
+		/*String url ="window.parent.location.href =\""+request.getContextPath()+"/login\"";
+		System.out.println("================= "+ url);
+		response.getWriter().write(url);*/
+		//System.out.println("================= "+ request.getContextPath() + "/login1");
+		response.sendRedirect("./");
+		//return new Message(e.getCode(),e.getMessage());
 	}
+	
 	@ExceptionHandler(LoanException.class)
 	public @ResponseBody Message messageException(LoanException e) {
 		return new Message(e.getCode(), e.getMessage());

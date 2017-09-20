@@ -55,7 +55,6 @@
 					var input = $(v);
 					
 					if (input.attr('name') == 'amount'){
-						console.log(input.attr('name'));
 						data[input.attr("name")] = input.val().replace(/\,/g, '');
 					}else{
 						data[input.attr("name")] = input.val();
@@ -64,19 +63,24 @@
 					delete(data["undefined"])
 				});
 				
-				console.log(data);
 		        $.ajax({
 		            type: frm.attr('method'),
 		            url: frm.attr('action'),
 		            data : data,
 		            success : function(json){
 		            	console.log(json);
-		            	if (json.code != '0000'){
-		            		alert(json.msg);
-		            		return;
+		            	if (typeof json.code == 'undefined'){
+		            		alert('សិទ្ធិរបស់អ្នកត្រូវបានផ្ដាច់សូមធ្វើការចូលប្រព័ន្ធម្ដងទៀត');
+		            		window.parent.location.href = './login'
 		            	}else{
-		            		alert(json.msg);
-		            		return;
+		            		if (json.code == '0000'){
+		            			alert(json.message);
+		            			top.loan.popup.closePopup('mywalletadd');
+		            		}else{
+		            			alert(json.message);
+		            			return;
+		            		}
+		            		
 		            	}
 		            	
 		            },

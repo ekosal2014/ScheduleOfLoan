@@ -3,14 +3,14 @@ package com.java.loan.model;
 public class Message {
 	private boolean error;
 	private String code;
-	private String msg;
+	private String message;
 	public Message(){};
 	public Message(String code){
 		this.code = code;
 	}
 	public Message(String code,String message){
 		this.code = code;
-		this.msg  = message;
+		this.message  = message;
 	}
 	public boolean isError() {
 		return error;
@@ -25,10 +25,10 @@ public class Message {
 		this.code = code;
 	}
 	public String getMsg() {
-		return msg;
+		return message;
 	}
 	public void setMsg(String msg) {
-		this.msg = msg;
+		this.message = msg;
 	}
 	
 	

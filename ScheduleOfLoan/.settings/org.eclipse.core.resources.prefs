@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/loan/popup/mywallet_add.jsp=UTF-8
 encoding//src/com/java/loan/services/MywalletService.java=UTF-8
+encoding//src/com/java/loan/utils/SessionUtils.java=UTF-8

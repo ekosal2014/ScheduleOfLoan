@@ -1,6 +1,6 @@
 <%@page import="com.java.loan.utils.SessionUtils"%>
 <%@page import="com.java.loan.model.User"%>
-<%
+ <%
 	String checkLogin = "";
    
 	try{
