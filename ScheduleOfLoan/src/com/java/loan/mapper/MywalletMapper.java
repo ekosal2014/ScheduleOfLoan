@@ -29,7 +29,7 @@ public interface MywalletMapper {
 	 * delete record from table MyWallet
 	 * e kosal
 	 * ******************************/
-	public Long myWalletCount();
+	public Long myWalletCount(HashMap map);
 	/********************************
 	 * Get Row  from table MyWallet where by wallet id
 	 * e kosal

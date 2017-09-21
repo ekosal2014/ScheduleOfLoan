@@ -40,10 +40,11 @@ public class MywalletController {
 		return "popup/mywallet_add";
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@RequestMapping(value = "/mywalletAdd", method = RequestMethod.POST)
-	public @ResponseBody Message mywalletAddAction(@ModelAttribute Mywallet wallet,HttpServletRequest request,HttpServletResponse respone) throws Exception {
-		User user = SessionUtils.getSessionLoan(request, respone);	
-		return mywalletService.myWalletInsert(wallet, user);		
+	public @ResponseBody Message mywalletAddAction(@RequestParam Map map,HttpServletRequest request,HttpServletResponse respone) throws Exception {
+		map.put("user", SessionUtils.getSessionLoan(request, respone)) ;	
+		return mywalletService.myWalletInsert(map);		
 	}
 	
 	@RequestMapping(value = "/mywalletlist" , method = RequestMethod.GET)

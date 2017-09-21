@@ -3,7 +3,7 @@ package com.java.loan.utils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class StringUtils {
+public class StringUtil {
 	private static String dtst = "yyyyMMdd";
 	private String stdt = "dd-mm-yyyy";
 	public static String leftPad(String str,int number,String symbol){

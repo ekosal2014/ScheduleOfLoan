@@ -77,7 +77,7 @@
 	<!-- *************************************************************
 		delete record into tblMywallet 
 		***********************************************************-->
-	<select id="myWalletCount" resultType="Long">
-		SELECT COUNT(*) AS total FROM tblMywallet
+	<select id="myWalletCount" resultType="Long" parameterType="java.util.HashMap">
+		SELECT COUNT(*) AS total FROM tblMywallet WHERE reg_date >= #{dtStart} AND reg_date &lt;= #{dtEnd}
 	</select>
 </mapper>

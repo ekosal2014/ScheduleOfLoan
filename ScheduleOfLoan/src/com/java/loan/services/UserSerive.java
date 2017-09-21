@@ -11,7 +11,7 @@ import com.java.loan.model.Message;
 import com.java.loan.model.User;
 import com.java.loan.utils.LoanException;
 import com.java.loan.utils.SessionUtils;
-import com.java.loan.utils.StringUtils;
+import com.java.loan.utils.StringUtil;
 
 @Service
 public class UserSerive {
@@ -36,7 +36,7 @@ public class UserSerive {
 				return new Message("1111", "User Name Already Exits!");
 			}else{
 				max = userMapper.getMaxUserId() + 1;
-				userCode = "EMP-"+ StringUtils.leftPad(String.valueOf(max), 10, "0");
+				userCode = "EMP-"+ StringUtil.leftPad(String.valueOf(max), 10, "0");
 				user.setUser_code(userCode);
 				user.setPassword(passwordEncoder.encode(user.getPassword()));
 				if (userMapper.registerUser(user) > 0){

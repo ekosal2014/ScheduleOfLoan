@@ -19,10 +19,11 @@ function goPageList(page){
         data: data,
         success : function(json){
         	  $('#tblMywallet>tbody').empty();
+        	  $('#mywallet-row').show();
         	  var tbl = '';
         	  var index = ($('#perPage').val() * page) - $('#perPage').val();
         	  if (index == 0 ) { index = index + 1;}else { index++;}
-        	  if ( json.list.length >= 0 ){
+        	  if ( json.list.length > 0 ){
 	        	  for(var i=0;i<json.list.length;i++){
 	        		  tbl +=  '<tr>'
 									+'<td class="t-center"><input type="checkbox"/></td>'

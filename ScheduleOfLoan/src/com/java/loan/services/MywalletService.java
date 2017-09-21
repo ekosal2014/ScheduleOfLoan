@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,8 @@ import com.java.loan.model.Mywallet;
 import com.java.loan.model.User;
 import com.java.loan.utils.LoanException;
 import com.java.loan.utils.PaginationUtils;
-import com.java.loan.utils.StringUtils;
+import com.java.loan.utils.StringUtil;
+import com.java.loan.validation.Validation;
 
 @Service
 public class MywalletService {
@@ -26,12 +28,14 @@ public class MywalletService {
 	 * insert new record into MyWallet
 	 * e kosal
 	 * ******************************/
-	public Message myWalletInsert(Mywallet wallet,User user) throws LoanException{
+	@SuppressWarnings("rawtypes")
+	public Message myWalletInsert(Map map) throws LoanException{
 		Mywallet mywallet = mywalletMapper.myWalletGetMaxRecord();
+		Validation.isNumber((String)map.get("amount"), "Amount is allow only number ");		
 		try{
 			wallet.setBalance_old(mywallet.getBalance_new());
 			wallet.setReg_user(user.getUser_id());
-			wallet.setReg_date(StringUtils.getCurrentDate());
+			wallet.setReg_date(StringUtil.getCurrentDate());
 			if (wallet.getAmout_type().equals("0")){
 				wallet.setBalance_new(mywallet.getBalance_new() - wallet.getAmount());
 			}else {
@@ -53,14 +57,14 @@ public class MywalletService {
 		try{
 			HashMap<String, Object> map = new HashMap<>();
 			PaginationUtils.perPage = Integer.valueOf(params.get("perPage"));
-			PaginationUtils.currentPage = Integer.valueOf(params.get("currentPage"));
-			PaginationUtils.total = mywalletMapper.myWalletCount();
+			PaginationUtils.currentPage = Integer.valueOf(params.get("currentPage"));			
 			map.put("dtStart"  , (String)params.get("dtStart"));
-			map.put("dtEnd"    , (String)params.get("dtEnd"));
+			map.put("dtEnd"    , (String)params.get("dtEnd"));			
 			map.put("start"    , PaginationUtils.getStart());
 			map.put("perPage"  , PaginationUtils.perPage);
+			PaginationUtils.total = mywalletMapper.myWalletCount(map);
 			map.put("list"     , mywalletMapper.myWalletList(map));
-			map.put("total"    , mywalletMapper.myWalletCount());
+			map.put("total"    , PaginationUtils.total);
 			map.put("Balance"  , mywalletMapper.myWalletGetMaxRecord().getBalance_new());
 			map.put("totalPage", PaginationUtils.totalPage());		
 			return map;
