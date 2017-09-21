@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	loadingList();
+	goPageList(1)
 	
 	$('#btn-addPopup').click(function(){
 		top.loan.popup.openPopup('mywalletadd');
@@ -36,27 +36,50 @@ $(document).ready(function(){
 	
 });
 
-function loadingList(){
+function goPageList(page){
+	var data = {
+		'perPage':$('#perPage').val(),
+		'currentPage':page,
+		'dtStart':$('#txt_dtStart').val().replace(/\-/g, ''),
+		'dtEnd':$('#txt_dtEnd').val().replace(/\-/g, '')
+	};
 	$.ajax({
         type: 'GET',
         url: '/ScheduleOfLoan/mywalletlist',
+        data: data,
         success : function(json){
+        	  console.log(json);
         	  $('#tblMywallet>tbody').empty();
         	  var tbl = '';
-        	  console.log(json)
-        	  for(var i=0;i<json.length;i++){
+        	  var index = ($('#perPage').val() * page) - $('#perPage').val();
+        	  if (index == 0 ) { index = index + 1;}else { index++;}
+        	  for(var i=0;i<json.list.length;i++){
         		  tbl +=  '<tr>'
 								+'<td class="t-center"><input type="checkbox"/></td>'
-								+'<td class="t-center">'+(i+1)+'</td>'
-								+'<td class="t-right">'+json[i].balance_old+' $</td>'											
-								+'<td class="t-right">'+json[i].amount+' $</td>'
-								+'<td class="t-right">'+json[i].balance_new+' $</td>'
-								+'<td class="t-center">'+json[i].amout_type+'</td>'
+								+'<td class="t-center">'+index+'</td>'
+								+'<td class="t-right">'+json.list[i].balance_old+' $</td>'											
+								+'<td class="t-right">'+json.list[i].amount+' $</td>'
+								+'<td class="t-right">'+json.list[i].balance_new+' $</td>'
+								+'<td class="t-center">'+json.list[i].amout_type+'</td>'
 								+'<td class="t-center">view</td>'
 							+'</tr>';
+        		  index++;
         	  }
         	  $('#tblMywallet>tbody').append(tbl);
         	  $('#ifr-layout', window.parent.document).height($('#body-mywallet').height());
+        	  $('#indexPage').text(page);
+        	  $('#ttPage').text(json.totalPage);
+        	  $('#total').text(json.total);
+        	  var option = {
+        			total : json.total,
+    				maxVisible : 5,
+    				perPage : $('#perPage').val(),
+    				currentPage : page,
+    				numPage : 1,
+    				wrapClass:'pagination',
+    				eventLink:'goPageList'
+        	  }
+        	  pagination.showPage(option);
         },
         error : function(){
            console.log('error');

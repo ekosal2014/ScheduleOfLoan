@@ -1,7 +1,5 @@
 package com.java.loan.model;
 
-import java.util.Date;
-
 public class Mywallet {
 	private int wallet_id;
 	private long balance_old;
@@ -9,7 +7,7 @@ public class Mywallet {
 	private String amout_type;
 	private long balance_new;
 	private String descriptions;
-	private Date reg_date;
+	private String reg_date;
 	private int reg_user;
 	public int getWallet_id() {
 		return wallet_id;
@@ -48,10 +46,10 @@ public class Mywallet {
 	public void setDescription(String description) {
 		this.descriptions = description;
 	}
-	public Date getReg_date() {
+	public String getReg_date() {
 		return reg_date;
 	}
-	public void setReg_date(Date reg_date) {
+	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
 	public int getReg_user() {

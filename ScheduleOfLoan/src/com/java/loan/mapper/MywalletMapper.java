@@ -1,7 +1,9 @@
 package com.java.loan.mapper;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -22,12 +24,12 @@ public interface MywalletMapper {
 	 * select list from MyWallet
 	 * e kosal
 	 * *****************************/
-	public List<Mywallet> myWalletList();
+	public List<Mywallet> myWalletList(HashMap map);
 	/********************************
 	 * delete record from table MyWallet
 	 * e kosal
 	 * ******************************/
-	public int myWalletDeleteById(@Param("walletId") int walletId);
+	public Long myWalletCount();
 	/********************************
 	 * Get Row  from table MyWallet where by wallet id
 	 * e kosal

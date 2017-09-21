@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 	<%@include file="header.jsp" %>
-	<body id="body-mywallet">
-
-				
+	<body id="body-mywallet">				
 				<div class="content">
 					<div class="content-box border-blue">
 						<div class="content-box-head">
@@ -22,11 +20,11 @@
 								<div class="col-sm-4">
 									<div>
 										<label>Show 
-											<select class="form-control input-rows">
+											<select class="form-control input-rows" id="perPage">
 												<option value="10">10</option>
-												<option value="25">25</option>
+												<option value="15">15</option>
+												<option value="30">30</option>
 												<option value="50">50</option>
-												<option value="100">100</option>
 											</select> entries
 										</label>
 									</div>
@@ -72,15 +70,17 @@
 							</div>	
 							<div style="clear:both;"></div>
 							<div class="row">
-								<div class="col-sm-4" style="padding-top:5px;">Showing 1 to 10 of 57 entries</div>
+								<div class="col-sm-4" style="padding-top:5px;">Showing <span id="indexPage">1</span> to <span id="ttPage">10</span> of <span id="total">57</span> entries</div>
 								<div class="col-sm-8">
 									<div class="pagination-number">
 										<ul class="pagination">
-											<li><a><<</a></li>
+											<li><a>←</a></li>
+											<li><a>«</a></li>
 											<li class="active"><a> 1</a></li>
 											<li><a>2</a></li>
 											<li><a>3</a></li>
-											<li><a>>></a></li>
+											<li><a>»</a></li>
+											<li><a>→</a></li>
 										</ul>
 									</div>
 								</div>
@@ -94,6 +94,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="${pageContext.request.contextPath }/static/js/jquery-ui-1.9.2.custom.js" charset="UTF-8"></script>
 		<script src="${pageContext.request.contextPath }/static/js/mywallet.js" charset="UTF-8"></script>
+		<script src="${pageContext.request.contextPath }/static/js/pagination.js" charset="UTF-8"></script>
 			
 </html>
 		

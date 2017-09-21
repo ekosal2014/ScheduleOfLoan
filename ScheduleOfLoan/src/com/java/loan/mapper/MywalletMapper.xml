@@ -14,7 +14,7 @@
 	<!-- *******************************************
 		select list wallet from table tblMywallet
 	 ********************************************-->
-	<select id="myWalletList" resultMap="mywallet">
+	<select id="myWalletList" resultMap="mywallet" parameterType="java.util.HashMap">
 		SELECT 
 			  wallet_id
 			, balance_old
@@ -22,10 +22,12 @@
 			, balance_new
 			, amout_type
 			, descriptions
-			, reg_date
+			, DATE_FORMAT(`reg_date`, '%d-%m-%Y') as reg_date
 			, reg_user
-		FROM tblMywallet
+		FROM tblMywallet 
 		ORDER BY wallet_id desc
+		LIMIT #{start},#{perPage}
+		
 	</select>
 	<!-- *******************************************************
 		select data from table tblMywallet by wallet id to edit 
@@ -74,8 +76,7 @@
 	<!-- *************************************************************
 		delete record into tblMywallet 
 		***********************************************************-->
-	<delete id="myWalletDeleteById" parameterType="int">
-		DELETE FROM tblMywallet
-		WHERE wallet_id = #{walletId}
-	</delete>
+	<select id="myWalletCount" resultType="Long">
+		SELECT COUNT(*) AS total FROM tblMywallet
+	</select>
 </mapper>

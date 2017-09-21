@@ -16,7 +16,6 @@ $(document).ready(function(){
     });
 });
 function resizeIframe(obj){
-	console.log(obj);
 	 obj.style.height = obj.contentWindow.document.body.scrollHeight  + 'px'; 
 	// obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; 
 }
