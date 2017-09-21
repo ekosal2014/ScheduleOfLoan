@@ -22,7 +22,7 @@
 			, balance_new
 			, amout_type
 			, descriptions
-			, DATE_FORMAT(`reg_date`, '%d-%m-%Y') as reg_date
+			, cast(DATE_FORMAT(`reg_date`, '%d-%m-%Y') as varchar) as reg_date
 			, reg_user
 		FROM tblMywallet 
 		ORDER BY wallet_id desc
