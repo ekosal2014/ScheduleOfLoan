@@ -20,11 +20,12 @@
 			, balance_old
 			, amount
 			, balance_new
-			, amout_type
+			, case when amout_type = '0' then 'uncredit' else 'credit' end  amout_type
 			, descriptions
-			, cast(DATE_FORMAT(`reg_date`, '%d-%m-%Y') as varchar) as reg_date
+			, reg_date
 			, reg_user
 		FROM tblMywallet 
+		WHERE reg_date >= #{dtStart} AND reg_date &lt;= #{dtEnd}
 		ORDER BY wallet_id desc
 		LIMIT #{start},#{perPage}
 		

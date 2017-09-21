@@ -2,7 +2,6 @@ var pagination;
 if (!pagination) pagination = {};
 if (!pagination.showPage){
 	pagination.showPage = {};
-	pagination.goPage   = {};
 	var item = {};
 	pagination = {
 		total : 10,

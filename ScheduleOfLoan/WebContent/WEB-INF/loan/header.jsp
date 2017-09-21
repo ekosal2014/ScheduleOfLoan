@@ -8,17 +8,17 @@
 		if (user == null){
 			user = new User();
 			user.setTxt("9999");
-			checkLogin = "<script language='javascript'>";
+			checkLogin = "<script language='javascript' charset='utf-8'>";
 			checkLogin += "window.onload=function(){";
-			checkLogin += "alert('Session Removed!');";
+			checkLogin += "alert('សិទ្ធិរបស់អ្នកត្រូវបានផ្ដាច់សូមធ្វើការចូលប្រព័ន្ធម្ដងទៀត!');";
 			checkLogin += "window.parent.location.href = './login';";
 			checkLogin += "}";
 			checkLogin += "</script>";
 		}
 	}catch(Exception e){
-			checkLogin = "<script language='javascript'>";
+			checkLogin = "<script language='javascript' charset='utf-8'>";
 			checkLogin += "window.onload=function(){";
-			checkLogin += "alert('Session Removed!');";
+			checkLogin += "alert('សិទ្ធិរបស់អ្នកត្រូវបានផ្ដាច់សូមធ្វើការចូលប្រព័ន្ធម្ដងទៀត!');";
 			checkLogin += "window.parent.location.href = './login';";
 			checkLogin += "}";
 			checkLogin += "</script>"; 

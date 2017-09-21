@@ -38,7 +38,6 @@ public class SessionUtils {
 	}
 	
 	public static User getSessionLoanView(HttpServletRequest request){
-		System.out.println(" ================= Hello 11111 ====================");
 		try{
 			HttpSession session = request.getSession(false);
 			return (User) session.getAttribute(SESSION_LOAN);

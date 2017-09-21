@@ -55,11 +55,13 @@ public class MywalletService {
 			PaginationUtils.perPage = Integer.valueOf(params.get("perPage"));
 			PaginationUtils.currentPage = Integer.valueOf(params.get("currentPage"));
 			PaginationUtils.total = mywalletMapper.myWalletCount();
-			map.put("start", PaginationUtils.getStart());
-			map.put("perPage", PaginationUtils.perPage);
-			map.put("list", mywalletMapper.myWalletList(map));
-			map.put("total", mywalletMapper.myWalletCount());
-			map.put("Balance", mywalletMapper.myWalletGetMaxRecord().getBalance_new());
+			map.put("dtStart"  , (String)params.get("dtStart"));
+			map.put("dtEnd"    , (String)params.get("dtEnd"));
+			map.put("start"    , PaginationUtils.getStart());
+			map.put("perPage"  , PaginationUtils.perPage);
+			map.put("list"     , mywalletMapper.myWalletList(map));
+			map.put("total"    , mywalletMapper.myWalletCount());
+			map.put("Balance"  , mywalletMapper.myWalletGetMaxRecord().getBalance_new());
 			map.put("totalPage", PaginationUtils.totalPage());		
 			return map;
 		}catch(Exception e){
