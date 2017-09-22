@@ -8,9 +8,9 @@
 						<div class="content-box-head">
 								<span class="count-top">
 										<i class="fa fa-briefcase" aria-hidden="true"></i>
-										My Wallet
+										EMPLOYEE
 								</span>
-								<span class="count">$ 10,000,000</span>
+								<span class="count">1000</span>
 								<span class="count-bottom">
 									<a href="javascript;">Add</a> | 
 									<a href="javascript:">Delete</a>
@@ -34,9 +34,7 @@
 								<div class="col-sm-8">
 									<div style="text-align:right;">
 										<label>Search:
-											<!--<input type="search" class="form-control input-dt" placeholder="">~
-											<input type="search" class="form-control input-dt" placeholder="">-->
-											<input type="search" class="form-control input-search" placeholder="">
+											<input type="text" class="form-control input-search" placeholder="">
 											<input class="btn btn-default" type="button" value="Search" style="width:100px;">
 										</label>										
 									</div>
@@ -53,6 +51,7 @@
 											<th>Phone</th>
 											<th>E-mail</th>
 											<th>UserName</th>
+											<th>Address</th>
 											<th>Status</th>
 											<th></th>
 										</tr>
@@ -66,16 +65,6 @@
 											<td class="t-left">010-789-456</td>
 											<td class="t-left">longkosal7@gmail.com</td>
 											<td class="t-left">ekosal</td>
-											<td class="t-center">pending</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-left">E Kosal</td>											
-											<td class="t-center">Male</td>
-											<td class="t-left">010-789-456</td>
-											<td class="t-left">longkosal7@gmail.com</td>
 											<td class="t-left">ekosal</td>
 											<td class="t-center">pending</td>
 											<td class="t-center">view</td>
@@ -88,16 +77,6 @@
 											<td class="t-left">010-789-456</td>
 											<td class="t-left">longkosal7@gmail.com</td>
 											<td class="t-left">ekosal</td>
-											<td class="t-center">pending</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-left">E Kosal</td>											
-											<td class="t-center">Male</td>
-											<td class="t-left">010-789-456</td>
-											<td class="t-left">longkosal7@gmail.com</td>
 											<td class="t-left">ekosal</td>
 											<td class="t-center">pending</td>
 											<td class="t-center">view</td>
@@ -110,6 +89,7 @@
 											<td class="t-left">010-789-456</td>
 											<td class="t-left">longkosal7@gmail.com</td>
 											<td class="t-left">ekosal</td>
+											<td class="t-left">ekosal</td>
 											<td class="t-center">pending</td>
 											<td class="t-center">view</td>
 										</tr>
@@ -120,6 +100,31 @@
 											<td class="t-center">Male</td>
 											<td class="t-left">010-789-456</td>
 											<td class="t-left">longkosal7@gmail.com</td>
+											<td class="t-left">ekosal</td>
+											<td class="t-left">ekosal</td>
+											<td class="t-center">pending</td>
+											<td class="t-center">view</td>
+										</tr>
+										<tr>
+										<td class="t-center"><input type="checkbox"/></td>
+											<td class="t-center">001</td>
+											<td class="t-left">E Kosal</td>											
+											<td class="t-center">Male</td>
+											<td class="t-left">010-789-456</td>
+											<td class="t-left">longkosal7@gmail.com</td>
+											<td class="t-left">ekosal</td>
+											<td class="t-left">ekosal</td>
+											<td class="t-center">pending</td>
+											<td class="t-center">view</td>
+										</tr>
+										<tr>
+											<td class="t-center"><input type="checkbox"/></td>
+											<td class="t-center">001</td>
+											<td class="t-left">E Kosal</td>											
+											<td class="t-center">Male</td>
+											<td class="t-left">010-789-456</td>
+											<td class="t-left">longkosal7@gmail.com</td>
+											<td class="t-left">ekosal</td>
 											<td class="t-left">ekosal</td>
 											<td class="t-center">pending</td>
 											<td class="t-center">view</td>

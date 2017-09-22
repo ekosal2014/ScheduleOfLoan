@@ -6,7 +6,6 @@
 	try{
 		user = SessionUtils.getSessionLoanView(request);	
 		if (user == null){
-			user = new User();
 			user.setTxt("9999");
 			checkLogin = "<script language='javascript' charset='utf-8'>";
 			checkLogin += "window.onload=function(){";

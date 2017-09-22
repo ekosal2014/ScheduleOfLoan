@@ -40,7 +40,11 @@ public class SessionUtils {
 	public static User getSessionLoanView(HttpServletRequest request){
 		try{
 			HttpSession session = request.getSession(false);
-			return (User) session.getAttribute(SESSION_LOAN);
+			if (session.getAttribute(SESSION_LOAN) == null){
+				return new User();
+			}else{
+				return (User) session.getAttribute(SESSION_LOAN);
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 			return new User();

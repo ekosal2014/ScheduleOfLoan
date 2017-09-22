@@ -24,4 +24,15 @@ import com.java.loan.model.User;
 	 * ekosa 14-09-20417
 	 * */
 	public User getUserNameExit(@Param("username") String username);
+	/*
+	 * Get User One Record To Edit User
+	 * ekosa 14-09-20417
+	 * */
+	public User getUserById(@Param("Id") int id);
+	/*
+	 * Get User One Record To Edit User
+	 * ekosa 14-09-20417
+	 * */
+	public int  userEditById(User user);
+	
 }
