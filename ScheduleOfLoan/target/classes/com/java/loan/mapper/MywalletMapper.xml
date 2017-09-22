@@ -65,13 +65,13 @@
 			   , reg_user
 			  )
 		VALUES(
-			     #{balance_old}
+			     #{BalenceOld}
 			   , #{amount}
-			   , #{balance_new}
-			   , #{amout_type}
-			   , #{descriptions}
-			   , #{reg_date}
-			   , #{reg_user}
+			   , #{BalenceNew}
+			   , #{amoutType}
+			   , #{description}
+			   , #{regDate}
+			   , #{user.user_id}
 				)
 	</insert>
 	<!-- *************************************************************

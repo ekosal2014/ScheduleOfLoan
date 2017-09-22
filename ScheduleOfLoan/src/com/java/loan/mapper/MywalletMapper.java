@@ -19,7 +19,7 @@ public interface MywalletMapper {
 	 * insert new record into MyWallet
 	 * e kosal
 	 * *****************************/
-	public int myWalletInsert(Mywallet mywallet);
+	public int myWalletInsert(Map map);
 	/********************************
 	 * select list from MyWallet
 	 * e kosal

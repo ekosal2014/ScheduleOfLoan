@@ -2,7 +2,7 @@ $(document).ready(function(){
 	StringUtils.datePickerRang('txt_dtStart','txt_dtEnd');
 	goPageList(1)	
 	$('#btn-addPopup').click(function(){
-		top.loan.popup.openPopup('mywalletadd');
+		loan.popup.openPopup('mywalletadd');
 	});	
 });
 

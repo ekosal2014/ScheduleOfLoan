@@ -1,19 +1,16 @@
 package com.java.loan.services;
 
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.EnumUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.java.loan.enums.WalletType;
 import com.java.loan.mapper.MywalletMapper;
 import com.java.loan.model.Message;
 import com.java.loan.model.Mywallet;
-import com.java.loan.model.User;
 import com.java.loan.utils.LoanException;
 import com.java.loan.utils.PaginationUtils;
 import com.java.loan.utils.StringUtil;
@@ -28,20 +25,22 @@ public class MywalletService {
 	 * insert new record into MyWallet
 	 * e kosal
 	 * ******************************/
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Message myWalletInsert(Map map) throws LoanException{
 		Mywallet mywallet = mywalletMapper.myWalletGetMaxRecord();
 		Validation.isNumber((String)map.get("amount"), "Amount is allow only number ");		
+		if (EnumUtils.isValidEnum(WalletType.class, (String)map.get("amout_type"))) {throw new LoanException("1111", "Wallel Type not Valid.");}
+		Validation.isBlank((String)map.get("description"), "Decription is not Blank");
+		Validation.isLengthCheck((String)map.get("description"), 250, "Decription is too long.");
 		try{
-			wallet.setBalance_old(mywallet.getBalance_new());
-			wallet.setReg_user(user.getUser_id());
-			wallet.setReg_date(StringUtil.getCurrentDate());
-			if (wallet.getAmout_type().equals("0")){
-				wallet.setBalance_new(mywallet.getBalance_new() - wallet.getAmount());
+			map.put("BalenceOld", mywallet.getBalance_new());
+			map.put("regDate", StringUtil.getCurrentDate());
+			if (map.get("amoutType").equals(WalletType.SPAND.getValue())){
+				map.put("BalenceNew", mywallet.getBalance_new() - Long.valueOf((String)map.get("amount")));
 			}else {
-				wallet.setBalance_new(mywallet.getBalance_new() + wallet.getAmount());
+				map.put("BalenceNew", mywallet.getBalance_new() + Long.valueOf((String)map.get("amount")));
 			}
-			mywalletMapper.myWalletInsert(wallet);
+			mywalletMapper.myWalletInsert(map);
 			return new Message("0000","ប្រតិបត្ដិការរបស់លោកអ្នកទទួលបានជោគជ័យ");
 		}catch(Exception e){
 			e.printStackTrace();
