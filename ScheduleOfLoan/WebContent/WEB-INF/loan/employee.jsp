@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 	<%@include file="header.jsp" %>
-	<body>
+	<body class="body-content">
 		
 				<div class="content">
 					<div class="content-box border-blue">
@@ -10,7 +10,7 @@
 										<i class="fa fa-briefcase" aria-hidden="true"></i>
 										EMPLOYEE
 								</span>
-								<span class="count">1000</span>
+								<span class="count" id="totalBalance">1000</span>
 								<span class="count-bottom">
 									<a href="javascript;">Add</a> | 
 									<a href="javascript:">Delete</a>
@@ -21,7 +21,7 @@
 								<div class="col-sm-4">
 									<div>
 										<label>Show 
-											<select class="form-control input-rows">
+											<select class="form-control input-rows" id="perPage">
 												<option value="10">10</option>
 												<option value="25">25</option>
 												<option value="50">50</option>
@@ -34,14 +34,14 @@
 								<div class="col-sm-8">
 									<div style="text-align:right;">
 										<label>Search:
-											<input type="text" class="form-control input-search" placeholder="">
+											<input type="text" class="form-control input-search" id="txtName" placeholder="">
 											<input class="btn btn-default" type="button" value="Search" style="width:100px;">
 										</label>										
 									</div>
 								</div>
 							</div>
 							<div class="content-controll-data">
-								<table class="tbl tbl-content">
+								<table class="tbl tbl-content" id="tblEmployee">
 									<thead>
 										<tr>
 										    <th></th>
@@ -134,16 +134,18 @@
 								
 							</div>	
 							<div style="clear:both;"></div>
-							<div class="row">
-								<div class="col-sm-4" style="padding-top:5px;">Showing 1 to 10 of 57 entries</div>
+							<div class="row pagination-row">
+								<div class="col-sm-4" style="padding-top:5px;">Showing <span id="indexPage">1</span> to <span id="ttPage">10</span> of <span id="total">57</span> entries</div>
 								<div class="col-sm-8">
 									<div class="pagination-number">
 										<ul class="pagination">
-											<li><a><<</a></li>
+											<li><a>←</a></li>
+											<li><a>«</a></li>
 											<li class="active"><a> 1</a></li>
 											<li><a>2</a></li>
 											<li><a>3</a></li>
-											<li><a>>></a></li>
+											<li><a>»</a></li>
+											<li><a>→</a></li>
 										</ul>
 									</div>
 								</div>
@@ -153,4 +155,6 @@
 					</div>
 				</div>
 	</body>
+	<%@include file="footer.jsp" %>
+	<script src="${pageContext.request.contextPath }/static/js/employee.js" charset="UTF-8"></script>
 </html>

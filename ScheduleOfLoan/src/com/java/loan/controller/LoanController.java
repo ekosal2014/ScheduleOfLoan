@@ -2,6 +2,8 @@ package com.java.loan.controller;
 
 
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -74,11 +76,17 @@ public class LoanController {
 		return "employee";
 	}
 	
+	@SuppressWarnings("unused")
+	@RequestMapping(value = "/userList", method = RequestMethod.GET)
+	public @ResponseBody Map<String, Object> getEmployeeList(@RequestParam Map<String, String> params,HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		User user = (User)SessionUtils.getSessionLoan(request, respone);
+		return userSerive.userList(params);
+	}
+	
+	
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String getLoginPage(ModelMap map){
-		System.out.println(" ============ Hello=========="+userSerive.userList());
-		map.addAttribute("userList", userSerive.userList());
-		map.addAttribute("abc"," Hello ");
 		return "login";
 	}
 	

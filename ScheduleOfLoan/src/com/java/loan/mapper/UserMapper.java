@@ -2,6 +2,7 @@ package com.java.loan.mapper;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -36,6 +37,7 @@ import com.java.loan.model.User;
 	 * */
 	public int  userEditById(User user);
 	
-	public List<User>  userList();
+	public List<User>  userList(HashMap<String, Object> map);
+	public int userCount();
 	
 }

@@ -47,8 +47,10 @@ public class MywalletController {
 		return mywalletService.myWalletInsert(map);		
 	}
 	
+	@SuppressWarnings("unused")
 	@RequestMapping(value = "/mywalletlist" , method = RequestMethod.GET)
-	public @ResponseBody Map<String, Object> mywalletList(@RequestParam Map<String, String> params){
+	public @ResponseBody Map<String, Object> mywalletList(@RequestParam Map<String, String> params,HttpServletRequest request,HttpServletResponse respone) throws Exception{
+		User user = (User)SessionUtils.getSessionLoan(request, respone);
 		return mywalletService.myWalletList(params);
 	}
 	

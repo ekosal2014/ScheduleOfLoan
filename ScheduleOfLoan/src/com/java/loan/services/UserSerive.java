@@ -1,6 +1,8 @@
 package com.java.loan.services;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +14,7 @@ import com.java.loan.mapper.UserMapper;
 import com.java.loan.model.Message;
 import com.java.loan.model.User;
 import com.java.loan.utils.LoanException;
+import com.java.loan.utils.PaginationUtils;
 import com.java.loan.utils.SessionUtils;
 import com.java.loan.utils.StringUtil;
 
@@ -82,9 +85,20 @@ public class UserSerive {
 		}
 	}
 	
-	public List<User> userList(){
+	public HashMap<String, Object> userList(Map<String, String> params){
+		HashMap<String, Object> map = new HashMap<>();
 		try{
-			return userMapper.userList();
+			PaginationUtils.perPage = Integer.valueOf(params.get("perPage"));
+			PaginationUtils.currentPage = Integer.valueOf(params.get("currentPage"));		
+			System.out.println("  =========== start ========="+PaginationUtils.getStart());
+			map.put("start", PaginationUtils.getStart());
+			map.put("perPage", PaginationUtils.perPage);
+			map.put("txtName", map.get("txtName"));
+			map.put("list", userMapper.userList(map));		
+			PaginationUtils.total = Long.valueOf(userMapper.userCount());
+			map.put("total", PaginationUtils.total);
+			map.put("totalPage", PaginationUtils.totalPage());
+			return map;
 		}catch(Exception e){
 			e.printStackTrace();
 			return null;
