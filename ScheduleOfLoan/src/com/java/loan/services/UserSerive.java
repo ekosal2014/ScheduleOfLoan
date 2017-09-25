@@ -1,5 +1,7 @@
 package com.java.loan.services;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +79,15 @@ public class UserSerive {
 			e.printStackTrace();
 			throw new LoanException("1111", "Something wrong!");
 			
+		}
+	}
+	
+	public List<User> userList(){
+		try{
+			return userMapper.userList();
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
 		}
 	}
 

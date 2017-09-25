@@ -36,6 +36,7 @@ public class LoanController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getHomePage(){
+		
 		return "redirect:/login";
 	}
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -74,15 +75,16 @@ public class LoanController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String getLoginPage(){
+	public String getLoginPage(ModelMap map){
+		System.out.println(" ============ Hello=========="+userSerive.userList());
+		map.addAttribute("userList", userSerive.userList());
+		map.addAttribute("abc"," Hello ");
 		return "login";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public @ResponseBody Message getLogIn(@RequestParam String username,@RequestParam String password,HttpSession session) throws Exception{
-		Message message = new Message();
-		message = userSerive.getLogIn(username, password, session);
-		return message;
+		return userSerive.getLogIn(username, password, session);
 	}
 		
 	/************************************

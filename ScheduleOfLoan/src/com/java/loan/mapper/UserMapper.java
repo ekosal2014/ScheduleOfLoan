@@ -1,6 +1,7 @@
 package com.java.loan.mapper;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -34,5 +35,7 @@ import com.java.loan.model.User;
 	 * ekosa 14-09-20417
 	 * */
 	public int  userEditById(User user);
+	
+	public List<User>  userList();
 	
 }

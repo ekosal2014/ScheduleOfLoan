@@ -40,5 +40,9 @@
 				    		, #{password}
 				    	    )
     </insert>
+    <!-- list user in system  -->
+    <select id="userList" resultMap="user">
+    	SELECT * FROM tblUser
+    </select>
 	
 </mapper>

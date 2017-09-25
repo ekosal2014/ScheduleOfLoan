@@ -41,13 +41,13 @@ public class SessionUtils {
 		try{
 			HttpSession session = request.getSession(false);
 			if (session.getAttribute(SESSION_LOAN) == null){
-				return new User();
+				return null;
 			}else{
 				return (User) session.getAttribute(SESSION_LOAN);
 			}
 		}catch(Exception e){
 			e.printStackTrace();
-			return new User();
+			return  null;
 		}
 	}
 	
