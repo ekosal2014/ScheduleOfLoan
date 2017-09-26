@@ -32,12 +32,9 @@ loan.popup.openPopup = function (id, input,callbackFn,topHeight){
 	}
 	$(iframe).attr('src','./'+id+param);
 }
-
-loan.popup.openPopupNoIfram = function(id){
-	$('#'+id).bPopup(loan.popup.modalOptions);
-}
 loan.popup.closePopup = function(id){
-	$('#'+id).bPopup().close();
+	var iframe = id+'_iframe';
+	$('#'+iframe).bPopup().close();
 };
 
 
