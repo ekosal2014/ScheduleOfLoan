@@ -68,67 +68,7 @@
 											<td class="t-left">ekosal</td>
 											<td class="t-center">pending</td>
 											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-left">E Kosal</td>											
-											<td class="t-center">Male</td>
-											<td class="t-left">010-789-456</td>
-											<td class="t-left">longkosal7@gmail.com</td>
-											<td class="t-left">ekosal</td>
-											<td class="t-left">ekosal</td>
-											<td class="t-center">pending</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-left">E Kosal</td>											
-											<td class="t-center">Male</td>
-											<td class="t-left">010-789-456</td>
-											<td class="t-left">longkosal7@gmail.com</td>
-											<td class="t-left">ekosal</td>
-											<td class="t-left">ekosal</td>
-											<td class="t-center">pending</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-left">E Kosal</td>											
-											<td class="t-center">Male</td>
-											<td class="t-left">010-789-456</td>
-											<td class="t-left">longkosal7@gmail.com</td>
-											<td class="t-left">ekosal</td>
-											<td class="t-left">ekosal</td>
-											<td class="t-center">pending</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-										<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-left">E Kosal</td>											
-											<td class="t-center">Male</td>
-											<td class="t-left">010-789-456</td>
-											<td class="t-left">longkosal7@gmail.com</td>
-											<td class="t-left">ekosal</td>
-											<td class="t-left">ekosal</td>
-											<td class="t-center">pending</td>
-											<td class="t-center">view</td>
-										</tr>
-										<tr>
-											<td class="t-center"><input type="checkbox"/></td>
-											<td class="t-center">001</td>
-											<td class="t-left">E Kosal</td>											
-											<td class="t-center">Male</td>
-											<td class="t-left">010-789-456</td>
-											<td class="t-left">longkosal7@gmail.com</td>
-											<td class="t-left">ekosal</td>
-											<td class="t-left">ekosal</td>
-											<td class="t-center">pending</td>
-											<td class="t-center">view</td>
-										</tr>
+										</tr>								
 									</tbody>
 								</table>
 								
@@ -158,3 +98,5 @@
 	<%@include file="footer.jsp" %>
 	<script src="${pageContext.request.contextPath }/static/js/employee.js" charset="UTF-8"></script>
 </html>
+
+		

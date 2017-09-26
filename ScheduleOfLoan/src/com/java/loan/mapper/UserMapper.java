@@ -39,5 +39,6 @@ import com.java.loan.model.User;
 	
 	public List<User>  userList(HashMap<String, Object> map);
 	public int userCount();
+	public int userEditBasic(HashMap<String, Object> map);
 	
 }

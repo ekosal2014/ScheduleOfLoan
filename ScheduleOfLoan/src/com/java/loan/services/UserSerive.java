@@ -6,10 +6,12 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.EnumUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.java.loan.enums.UserSts;
 import com.java.loan.mapper.UserMapper;
 import com.java.loan.model.Message;
 import com.java.loan.model.User;
@@ -17,6 +19,7 @@ import com.java.loan.utils.LoanException;
 import com.java.loan.utils.PaginationUtils;
 import com.java.loan.utils.SessionUtils;
 import com.java.loan.utils.StringUtil;
+import com.java.loan.validation.Validation;
 
 @Service
 public class UserSerive {
@@ -102,6 +105,25 @@ public class UserSerive {
 		}catch(Exception e){
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public Message userEditBasic(HashMap<String, Object> map) throws LoanException{
+		Validation.isBlank((String)map.get("fullName"), "Full Name can not Blank!");
+		Validation.isEnum((String)map.get("gender"), " gender is not valid");
+		Validation.isBlank((String)map.get("email"), "email can not Blank!");
+		Validation.isBlank((String)map.get("phone"), "Phone can not Blank!");
+		Validation.isBlank((String)map.get("address"), "address can not Blank!");
+		Validation.isEnum((String)map.get("txt"), " Permission is not valid");
+		Validation.isEnum((String)map.get("sts"), " Sitaution is not valid");
+		if ((String)map.get("photo") != ""){
+			map.put("photo", "default.png");
+		}
+		try{
+			map.put("createdate", StringUtil.getCurrentDate());
+			return new Message("0000", "User Edit Successfull");
+		}catch(Exception e){
+			throw new LoanException("9999", "User Edit fails");
 		}
 	}
 

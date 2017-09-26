@@ -2,11 +2,13 @@ package com.java.loan.controller;
 
 
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -83,7 +85,11 @@ public class LoanController {
 		return userSerive.userList(params);
 	}
 	
-	
+	@RequestMapping(value = "/userEditBasic")
+	public @ResponseBody Message userEditBasic(@RequestParam HashMap<String, Object> map,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		map.put("user", SessionUtils.getSessionLoan(request, response));
+		return userSerive.userEditBasic(map);
+	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String getLoginPage(ModelMap map){
@@ -116,7 +122,6 @@ public class LoanController {
 		if (msg.isError()){
 			return msg;
 		}
-		System.out.println(" ==================");
 		return userSerive.registerUser(user);
 	}
 

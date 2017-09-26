@@ -25,7 +25,7 @@
     
    <!--  Check Duplicated User Name -->
     <select id="getUserNameExit" parameterType="String" resultMap="user">
-    	SELECT * FROM tblUser WHERE username = #{username} AND sts != 3
+    	SELECT * FROM tblUser WHERE username = #{username} AND sts != 9
     </select>
     
     <insert id="registerUser" parameterType="user" useGeneratedKeys="true" keyProperty="user_id" >
@@ -42,14 +42,40 @@
     </insert>
     <!-- list user in system  -->
     <select id="userList" resultMap="user" parameterType="java.util.HashMap">
-    	SELECT * FROM tblUser
+    	SELECT 
+			  user_id
+			, user_code
+			, CASE WHEN full_name IS NULL THEN '' ELSE full_name END AS full_name
+			, CASE WHEN gender = '0' THEN 'Male' ELSE 'Female' END AS gender
+			, phone
+			, CASE WHEN email IS NULL THEN '' ELSE email END AS email
+			, username
+			, CASE WHEN sts = '2' THEN 'pending' ELSE 'completed' END AS sts
+			, CASE WHEN address IS NULL THEN '' ELSE address END AS address
+		FROM tblUser
     	WHERE 1=1
+    		AND sts != '9'
     	<if test="txtName != null">
     		AND full_name like '%'|| #{txtNam} ||'%'
     	</if>
     	LIMIT #{start},#{perPage}
     </select>
 	<select id="userCount" resultType="int">
-		SELECT COUNT(*) AS COUNT FROM tblUser WHERE sts != 3
+		SELECT COUNT(*) AS COUNT FROM tblUser WHERE sts != '9'
 	</select>
+	<update id="userEditBasic" parameterType="java.util.HashMap">
+		UPDATE tblUser 
+		SET   full_name = #{fullName}
+			, gender  = #{gender}
+			, email   = #{email}
+			, phone   = #{phone}
+			, photo   = #{photo}
+			, address = #{address}
+			, sts     = #{sts}
+			, txt     = #{sts}
+			, createby= #{createby}
+			, createdate = #{createdate}
+		WHERE user_id = #{user_id}
+	</update>
+	
 </mapper>

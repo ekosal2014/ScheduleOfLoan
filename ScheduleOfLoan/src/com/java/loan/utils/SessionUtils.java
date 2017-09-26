@@ -19,7 +19,7 @@ public class SessionUtils {
 		session.removeAttribute(SESSION_LOAN);
 	}
 	
-	public static User getSessionLoan(HttpServletRequest request,HttpServletResponse respone) throws Exception{
+	public static User getSessionLoan(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession(false);
 		
 		if (session != null){
