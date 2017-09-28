@@ -37,7 +37,9 @@ public class UserSerive {
 		User obj = new User();
 		int max = 0;
 		String userCode = "";
-		
+		System.out.println(" Hello  ========");
+		max = userMapper.getMaxUserId();
+		System.err.println("  Hello ============"+ max);
 		try{
 			obj = userMapper.getUserNameExit(user.getUsername());
 			if (obj != null){

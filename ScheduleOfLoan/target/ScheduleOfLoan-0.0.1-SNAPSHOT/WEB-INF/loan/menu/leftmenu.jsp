@@ -7,11 +7,11 @@
 	<div class="main-header"> asdflf </div>
 	<div class="user-infor">
 		<div class="user-infor-image">
-			<img src="Koala.jpg" alt="User Infor" width="50" height="50" class="image-user"/>
+			<img src="${pageContext.request.contextPath }/static/img/${user.photo }" alt="User Infor" width="50" height="50" class="image-user"/>
 		</div>
 		<div class="user-infor-caption">
-			<p class="name">E KOSAL</p>
-			<p>010 245 789</p>
+			<p class="name">${user.full_name }</p>
+			<p>${user.phone }</p>
 			<p>Team Leader</p>
 		</div>
 	</div>

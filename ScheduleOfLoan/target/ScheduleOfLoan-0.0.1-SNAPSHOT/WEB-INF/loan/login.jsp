@@ -41,8 +41,6 @@
 		</style>
 	</head>
 	<body>
-	    sadfasfd = ${abc} 
-	    lsdfjgd = ${userList }
 		<form method="post" action="${pageContext.request.contextPath }/login" id="frm-login">
 			<div class="login-container">
 				<label><b>Username</b></label>

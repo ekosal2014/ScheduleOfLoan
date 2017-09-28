@@ -93,12 +93,7 @@
 				</div>
 			<iframe id="mywalletadd_iframe" name="mywalletadd_iframe" style="display:none;left: 349.5px; position: absolute; top: 90px; z-index: 9999; width: 650px; border: none; height: 293px; right: 255px; opacity: 1; background-color: white;"></iframe>
 	</body>	
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="${pageContext.request.contextPath }/static/js/jquery-ui-1.9.2.custom.js" charset="UTF-8"></script>
-		<script src="${pageContext.request.contextPath }/static/js/lib/jquery.bpopup.min.js"></script>
-		<script src="${pageContext.request.contextPath }/static/js/StringUtils.js" charset="UTF-8"></script>
-		<script src="${pageContext.request.contextPath }/static/js/pagination.js" charset="UTF-8"></script>
-		<script src="${pageContext.request.contextPath }/static/js/loanPopup.js"></script>
+		<%@include file="footer.jsp" %>
 		<script src="${pageContext.request.contextPath }/static/js/mywallet.js" charset="UTF-8"></script>
 		
 			

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kh.com.schedule_loan.repositories.UserMapper">
+    <resultMap type="kh.com.schedule_loan.models.User" id="userResultMap">
+    	<id property="user_id"          column="user_id"/>
+    	<result property="user_code"    column="user_code"/>
+    	<result property="full_name"    column="full_name"/>
+    	<result property="gender"       column="gender"/>
+    	<result property="email"        column="email"/>
+    	<result property="phone"        column="phone"/>
+    	<result property="address"      column="address"/>
+    	<result property="username"     column="username"/>
+    	<result property="password"     column="password"/>
+    	<result property="createby"     column="createby"/>
+    	<result property="createdate"   column="createdate"/>
+    	<result property="sts"          column="sts"/>
+    	<result property="photo"        column="photo"/>
+    	<result property="txt"          column="txt"/>
+    </resultMap>
+    <!-- Get Max Index -->
+    <select id="getMaxUserId" resultType="int">
+    	SELECT COALESCE(max(USER_ID),0) AS USER_ID FROM tblUser
+    </select>
+    
+   <!--  Check Duplicated User Name -->
+    <select id="getUserNameExit" parameterType="String" resultMap="userResultMap">
+    	SELECT * FROM tblUser WHERE username = #{username} AND sts != 3
+    </select>
+    
+    <insert id="registerUser" parameterType="kh.com.schedule_loan.models.User" useGeneratedKeys="true" keyProperty="user_id" >
+    	INSERT INTO tblUser(
+				    		  user_code
+				    		, username
+				    		, password
+				    		)
+				    	VALUE(
+				    		  #{user_code}
+				    		, #{username}
+				    		, #{password}
+				    	    )
+    </insert>
+	
+</mapper>

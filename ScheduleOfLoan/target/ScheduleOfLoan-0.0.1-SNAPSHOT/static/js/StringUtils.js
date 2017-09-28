@@ -26,8 +26,9 @@ StringUtils.formatDateToString = function(str){
 	}
 	return '';
 }
-StringUtils.numberWithComma = function (number){
-	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+StringUtils.numberWithComma = function (number,str){
+	if (typeof str == null) str = ',';
+	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, str);
 }
 
 StringUtils.datePickerRang = function(dpStart,dpEnd){
